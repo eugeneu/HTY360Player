@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HTY360PlayerVC">
@@ -25,7 +25,6 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-21-8dz" userLabel="Play Button">
                             <rect key="frame" x="248" y="8" width="44" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Daa-lB-rAT"/>
                                 <constraint firstAttribute="width" constant="44" id="KLU-Pd-WBq"/>
@@ -37,7 +36,6 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuQ-LV-4yQ" userLabel="Back Button">
                             <rect key="frame" x="8" y="8" width="44" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Pun-TT-aTX"/>
                                 <constraint firstAttribute="width" constant="44" id="ml2-kb-T4Z"/>
@@ -49,7 +47,6 @@
                         </button>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UtA-4n-mGO">
                             <rect key="frame" x="6" y="62" width="528" height="31"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="cX1-h4-zaD"/>
                             </constraints>
@@ -64,7 +61,6 @@
                         </slider>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-sX-Ecz" userLabel="Gyro Button">
                             <rect key="frame" x="445" y="8" width="87" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="87" id="eSe-3z-9io"/>
                                 <constraint firstAttribute="height" constant="44" id="woa-gr-Ze6"/>
@@ -75,7 +71,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="3Pr-21-8dz" firstAttribute="centerX" secondItem="utK-WR-lKf" secondAttribute="centerX" id="831-O0-f35"/>
@@ -91,7 +86,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="utK-WR-lKf" secondAttribute="bottom" constant="30" id="M8X-Dv-5Mh"/>

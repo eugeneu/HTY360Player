@@ -36,6 +36,7 @@
 
 - (IBAction)playDemo:(id)sender {
   [self launchVideoWithName:@"demo"];
+    //[self launchVideoWithName:@"demo3"];
 }
 
 - (IBAction)playFile:(id)sender {
