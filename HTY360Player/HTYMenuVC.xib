@@ -17,15 +17,13 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8j-uy-rIj">
                     <rect key="frame" x="240" y="313" width="120" height="44"/>
-                    <color key="backgroundColor" red="0.23529411764705882" green="0.20784313725490194" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="PQ4-3A-jKz"/>
                         <constraint firstAttribute="width" constant="120" id="YZh-Yk-NRz"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
-                    <state key="normal" title="Play File">
-                        <color key="titleColor" red="0.52156862745098043" green="0.83137254901960778" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Play File"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -38,15 +36,13 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8E-bg-NC6">
                     <rect key="frame" x="240" y="243" width="120" height="44"/>
-                    <color key="backgroundColor" red="0.23529411764705882" green="0.20784313725490194" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="CEf-84-WUA"/>
                         <constraint firstAttribute="height" constant="44" id="glP-6O-i22"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
-                    <state key="normal" title="Play Demo">
-                        <color key="titleColor" red="0.52264207601547241" green="0.83090859651565552" blue="0.99909281730651855" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Play Demo"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -64,7 +60,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="M8j-uy-rIj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="35" id="1XI-GF-TVm"/>
                 <constraint firstItem="Y8E-bg-NC6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-35" id="3Kx-g3-ef1"/>
