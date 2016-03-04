@@ -13,6 +13,6 @@ varying vec2 v_textureCoordinate;
 uniform mat4 modelViewProjectionMatrix;
 
 void main() {
-  v_textureCoordinate = texCoord;
-  gl_Position = modelViewProjectionMatrix * position;
+    v_textureCoordinate = texCoord;
+    gl_Position = modelViewProjectionMatrix * position;
 }
