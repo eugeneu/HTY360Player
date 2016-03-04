@@ -20,7 +20,6 @@
 		405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */; };
 		405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CB1BEF8B18003BCFF7 /* Shader.vsh */; };
 		405108CE1BEF8B4B003BCFF7 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CD1BEF8B4B003BCFF7 /* Shader.fsh */; };
-		405108D11BEF8C6D003BCFF7 /* demo0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 405108D01BEF8BBB003BCFF7 /* demo0.mp4 */; };
 		443E7B2E1C749345008CE8E7 /* demo1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443E7B2B1C749345008CE8E7 /* demo1.mp4 */; };
 		443E7B301C749345008CE8E7 /* demo2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443E7B2D1C749345008CE8E7 /* demo2.mp4 */; };
 		443E7B321C74B1A8008CE8E7 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443E7B311C74B1A8008CE8E7 /* demo.mp4 */; };
@@ -48,7 +47,6 @@
 		405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTYMenuVC.xib; sourceTree = "<group>"; };
 		405108CB1BEF8B18003BCFF7 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		405108CD1BEF8B4B003BCFF7 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
-		405108D01BEF8BBB003BCFF7 /* demo0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo0.mp4; sourceTree = "<group>"; };
 		443E7B2B1C749345008CE8E7 /* demo1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo1.mp4; sourceTree = "<group>"; };
 		443E7B2D1C749345008CE8E7 /* demo2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo2.mp4; sourceTree = "<group>"; };
 		443E7B311C74B1A8008CE8E7 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				443E7B2B1C749345008CE8E7 /* demo1.mp4 */,
 				443E7B2D1C749345008CE8E7 /* demo2.mp4 */,
 				4051089F1BEF7E3C003BCFF7 /* main.m */,
-				405108D01BEF8BBB003BCFF7 /* demo0.mp4 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -216,7 +213,6 @@
 				405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */,
 				443E7B321C74B1A8008CE8E7 /* demo.mp4 in Resources */,
 				405108AB1BEF7E3C003BCFF7 /* Assets.xcassets in Resources */,
-				405108D11BEF8C6D003BCFF7 /* demo0.mp4 in Resources */,
 				405108BC1BEF7F32003BCFF7 /* HTY360PlayerVC.xib in Resources */,
 				443E7B2E1C749345008CE8E7 /* demo1.mp4 in Resources */,
 				405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */,

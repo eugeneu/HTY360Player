@@ -235,34 +235,17 @@ int esGenCube ( float radius, float **vertices, float **normals,
     if ( indices != NULL )
         *indices = malloc ( sizeof(uint16_t) * numIndices );
     
-    //               4---5
-    //               |+Y |
-    //               7---6
-    //         4---7 7---6 6---5 5---4
-    //         |-X | |+Z | |+X | |-Z |
-    //         0---3 3---2 2---1 1---0
-    //               3---2
-    //               |-Y |
-    //               0---1
-    //
-    //               6---7
-    //               |+Y |
-    //           6---5---4---7---6
-    //           |-X |+Z |+X |-Z |
-    //           2---1---0---3---2
-    //               |-Y |
-    //               2---3
-    //
     
-    // Vertices for cube in 3D space
+    // Vertices for cube in 3D space        
+    //                                        
+    //            7-----6      ^ y                  6---7
+    //           /|    /|      |                    |+Y |
+    //          4-----5 |      |                6---5---4---7---6
+    //          | 3- -|-2      /-----> x        |-X |+Z |+X |-Z |
+    //          |/    |/      /                 2---1---0---3---2
+    //          0-----1      |/                     |-Y |
+    //                       'z                     2---3
     //
-    //            7-----6      ^ y
-    //           /|    /|      |
-    //          4-----5 |      |
-    //          | 3- -|-2      /-----> x
-    //          |/    |/      /
-    //          0-----1      |/
-    //                       'z
     //                     X                           Y                           Z
 #define ADD_VX_0(n) (*vertices)[n*3 + 0] = -r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] = -r;
 #define ADD_VX_1(n) (*vertices)[n*3 + 0] =  r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] = -r;
@@ -275,14 +258,14 @@ int esGenCube ( float radius, float **vertices, float **normals,
     
     // Texture coordinates on plane for vertices
     //
-    //         4---7 6---5 6---7  <------ top
-    //         |+X | |-X | |+Y |
-    //         0---3 2---1 5---4  <------ mid
-    //         1---0 5---4 7---6
-    //         |-Y | |+Z | |-Z |
-    //         2---3 1---0 3---2  <------ bottom
-    //         ^    ^     ^    ^
-    //       left l_mid r_mid right
+    //        6---7               4---7 6---5 6---7  <--- top
+    //        |+Y |               |+X | |-X | |+Y |
+    //    6---5---4---7---6       0---3 2---1 5---4  <--- mid
+    //    |-X |+Z |+X |-Z |       1---0 5---4 7---6
+    //    2---1---0---3---2       |-Y | |+Z | |-Z |
+    //        |-Y |               2---3 1---0 3---2  <--- bottom
+    //        2---3               ^    ^     ^    ^
+    //                          left l_mid r_mid right
     
     float top = 0.0f; float mid = 0.5f; float bottom = 1.0f;
     float left = 0.0f; float left_mid = left + 1.0/3.0;
