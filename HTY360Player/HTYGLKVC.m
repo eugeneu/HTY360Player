@@ -448,7 +448,7 @@ int esGenCube ( float radius, float **vertices, float **normals,
 }
 
 - (void)stopDeviceMotion {
-    _fingerRotationX = _savedGyroRotationX-_referenceAttitude.roll- ROLL_CORRECTION;
+    _fingerRotationX = _savedGyroRotationX - _referenceAttitude.roll- ROLL_CORRECTION;
     _fingerRotationY = _savedGyroRotationY;
     
     _isUsingMotion = NO;
@@ -491,12 +491,15 @@ int esGenCube ( float radius, float **vertices, float **normals,
 }
 
 - (void)update {
+    
     float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
+    
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(_overture), aspect, 0.1f, 400.0f);
     projectionMatrix = GLKMatrix4Rotate(projectionMatrix, ES_PI, 1.0f, 0.0f, 0.0f);
     
     GLKMatrix4 modelViewMatrix = GLKMatrix4Identity;
     modelViewMatrix = GLKMatrix4Scale(modelViewMatrix, 300.0, 300.0, 300.0);
+    
     if(_isUsingMotion) {
         CMDeviceMotion *d = _motionManager.deviceMotion;
         if (d != nil) {
@@ -535,36 +538,6 @@ int esGenCube ( float radius, float **vertices, float **normals,
                 _savedGyroRotationX = cRoll + ROLL_CORRECTION + _fingerRotationX;
                 _savedGyroRotationY = cPitch + _fingerRotationY;
             }
-            /*
-             else {
-             float deviceOrientationRadians = 0.0f;
-             int mul = 1;
-             UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-             if (orientation == UIDeviceOrientationPortrait) {
-             deviceOrientationRadians = -M_PI_2;
-             mul = -1;
-             }
-             if (orientation == UIDeviceOrientationPortraitUpsideDown) {
-             deviceOrientationRadians = M_PI_2;
-             mul = 1;
-             
-             }
-             
-             GLKMatrix4 baseRotation = GLKMatrix4MakeRotation(deviceOrientationRadians, 1.0f, 0.0f, 0.0f);//up down
-             
-             CMRotationMatrix a = attitude.rotationMatrix; // COL 1 : Gauche droite, COL 2: haut bas
-             GLKMatrix4 deviceMatrix = GLKMatrix4Make(mul*a.m11, mul*a.m12, a.m13, 0.0f,
-             mul*a.m21, mul*a.m22, a.m23, 0.0f,
-             mul*a.m31, mul*a.m32, a.m33, 0.0f,
-             0.0f, 0.0f, 0.0f, 1.0f);
-             deviceMatrix = GLKMatrix4Multiply(baseRotation, deviceMatrix);
-             
-             modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, _fingerRotationX);
-             modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, _fingerRotationY);
-             
-             modelViewMatrix = GLKMatrix4Multiply(modelViewMatrix, deviceMatrix);
-             }
-             */
         }
         
     } else {
