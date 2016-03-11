@@ -21,7 +21,8 @@
 
 #define ES_PI  (3.14159265f)
 
-#define ROLL_CORRECTION ES_PI/2.0
+#define ROLL_CORRECTION (-ES_PI/2.0)
+//#define ROLL_CORRECTION 0
 
 // Color Conversion Constants (YUV to RGB) including adjustment from 16-235/16-240 (video range)
 // BT.709, which is the standard for HDTV
@@ -429,6 +430,8 @@ int esGenCube ( float radius, float **vertices, float **normals,
 #pragma mark device motion management
 
 - (void)startDeviceMotion {
+    static int i = 1;
+    NSLog(@"startDeviceMotion %d\n",i++);
     _isUsingMotion = NO;
     
     _motionManager = [[CMMotionManager alloc] init];
@@ -439,16 +442,26 @@ int esGenCube ( float radius, float **vertices, float **normals,
     
     [_motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
     
-    _referenceAttitude = _motionManager.deviceMotion.attitude; // Maybe nil actually. reset it later when we have data
+    //while (!_referenceAttitude)
+    //    _referenceAttitude = _motionManager.deviceMotion.attitude; // Maybe nil actually. reset it later when we have data
     
     _savedGyroRotationX = 0;
     _savedGyroRotationY = 0;
     
     _isUsingMotion = YES;
+    NSLog(@"rollValueLabel  %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.roll));
+    NSLog(@"yawValueLabel   %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.yaw));
+    NSLog(@"pitchValueLabel %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.pitch));
 }
 
 - (void)stopDeviceMotion {
-    _fingerRotationX = _savedGyroRotationX - _referenceAttitude.roll- ROLL_CORRECTION;
+    static int i = 1;
+    NSLog(@"stopDeviceMotion %d\n",i++);
+    NSLog(@"rollValueLabel  %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.roll));
+    NSLog(@"yawValueLabel   %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.yaw));
+    NSLog(@"pitchValueLabel %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.pitch));
+    
+    _fingerRotationX = _savedGyroRotationX;// - _referenceAttitude.roll - ROLL_CORRECTION;
     _fingerRotationY = _savedGyroRotationY;
     
     _isUsingMotion = NO;
@@ -495,7 +508,7 @@ int esGenCube ( float radius, float **vertices, float **normals,
     float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
     
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(_overture), aspect, 0.1f, 400.0f);
-    projectionMatrix = GLKMatrix4Rotate(projectionMatrix, ES_PI, 1.0f, 0.0f, 0.0f);
+    projectionMatrix = GLKMatrix4Rotate(projectionMatrix, ES_PI, 0.0f, 0.0f, 1.0f);
     
     GLKMatrix4 modelViewMatrix = GLKMatrix4Identity;
     modelViewMatrix = GLKMatrix4Scale(modelViewMatrix, 300.0, 300.0, 300.0);
@@ -506,9 +519,10 @@ int esGenCube ( float radius, float **vertices, float **normals,
             CMAttitude *attitude = d.attitude;
             
             if (_referenceAttitude != nil) {
-                [attitude multiplyByInverseOfAttitude:_referenceAttitude];
+                //[attitude multiplyByInverseOfAttitude:_referenceAttitude];
             } else {
-                //NSLog(@"was nil : set new attitude", nil);
+                NSLog(@"Was nil: Set new attitude:", nil);
+                NSLog(@"r %1.0f° y %1.0f° p %1.0f°", GLKMathRadiansToDegrees(attitude.roll),GLKMathRadiansToDegrees(attitude.yaw), GLKMathRadiansToDegrees(attitude.pitch));
                 _referenceAttitude = d.attitude;
             }
             
@@ -516,13 +530,18 @@ int esGenCube ( float radius, float **vertices, float **normals,
             [self fillDebugValues:attitude];
 #endif
             
-            float cRoll = -fabs(attitude.roll); // Up/Down en landscape
+            //float cRoll = -fabs(attitude.roll); // Up/Down en landscape
+            float cRoll = attitude.roll;        // Up/Down en landscape + Add sturation /EU
             float cYaw = attitude.yaw;          // Left/ Right en landscape -> pas besoin de prendre l'opposé
             float cPitch = attitude.pitch;      // Depth en landscape -> pas besoin de prendre l'opposé
             
             UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
             if (orientation == UIDeviceOrientationLandscapeRight ){
-                cPitch = cPitch*-1; // correct depth when in landscape right
+                cPitch = -cPitch; // correct depth when in landscape right
+            }
+            if (orientation == UIDeviceOrientationLandscapeLeft ){
+                cRoll = -cRoll;
+                cYaw = -cYaw;
             }
             
             if (YES) {
@@ -532,16 +551,17 @@ int esGenCube ( float radius, float **vertices, float **normals,
                 
                 modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, ROLL_CORRECTION);
                 
-                modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, _fingerRotationX);
-                modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, _fingerRotationY);
+                //modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, _fingerRotationX);
+                //modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, _fingerRotationY);
                 
-                _savedGyroRotationX = cRoll + ROLL_CORRECTION + _fingerRotationX;
-                _savedGyroRotationY = cPitch + _fingerRotationY;
+                _savedGyroRotationX = -cRoll - ROLL_CORRECTION; //+ _fingerRotationX;
+                _savedGyroRotationY = cPitch; //+ _fingerRotationY;
             }
         }
         
     } else {
-        modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, _fingerRotationX);
+        modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, -_fingerRotationX);
+        //modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, ROLL_CORRECTION);
         modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, _fingerRotationY);
     }
     
