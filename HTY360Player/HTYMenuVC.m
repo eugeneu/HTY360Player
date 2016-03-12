@@ -12,6 +12,10 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "HTY360PlayerVC.h"
 
+// Name of Demo Video file
+NSString *demoName = @"im360_Golf_cubemap_32_1620x1080p30_x264";
+//NSString *demoName = @"im360_Golf_cubemap_32_3240x2160p30_x264";
+
 @interface HTYMenuVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @end
 
@@ -37,8 +41,7 @@
 #pragma mark button management
 
 - (IBAction)playDemo:(id)sender {
-    [self launchVideoWithName:@"demo"];
-    //[self launchVideoWithName:@"demo3"];
+    [self launchVideoWithName: demoName];
 }
 
 - (IBAction)playFile:(id)sender {

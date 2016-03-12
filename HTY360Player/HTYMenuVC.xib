@@ -53,8 +53,8 @@
                         <action selector="playDemo:" destination="-1" eventType="touchUpInside" id="yh6-Rs-aHo"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="MMSPG 360° Video Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sng-vk-QO7">
-                    <rect key="frame" x="196" y="45" width="209" height="32"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMSPG 360° Video Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sng-vk-QO7">
+                    <rect key="frame" x="146" y="45" width="309" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
