@@ -272,6 +272,7 @@ int esGenCube ( float radius, float **vertices, float **normals,
     float left = 0.0f; float left_mid = left + 1.0/3.0;
     float right = 1.0f; float right_mid = right - 1.0/3.0;
     
+// Assing texture coordinates to index of vertex
 #define ADD_TX(n,x,y) (*texCoords)[n*2 + 0] = x; (*texCoords)[n*2 + 1] =  y;
     
     // +X: Right  | Vertices 0,3,7,4
@@ -430,8 +431,7 @@ int esGenCube ( float radius, float **vertices, float **normals,
 #pragma mark device motion management
 
 - (void)startDeviceMotion {
-    static int i = 1;
-    NSLog(@"startDeviceMotion %d\n",i++);
+    NSLog(@"startDeviceMotion\n");
     _isUsingMotion = NO;
     
     _motionManager = [[CMMotionManager alloc] init];
@@ -449,17 +449,16 @@ int esGenCube ( float radius, float **vertices, float **normals,
     _savedGyroRotationY = 0;
     
     _isUsingMotion = YES;
-    NSLog(@"rollValueLabel  %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.roll));
-    NSLog(@"yawValueLabel   %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.yaw));
-    NSLog(@"pitchValueLabel %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.pitch));
+    //NSLog(@"roll  %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.roll));
+    //NSLog(@"yaw   %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.yaw));
+    //NSLog(@"pitch %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.pitch));
 }
 
 - (void)stopDeviceMotion {
-    static int i = 1;
-    NSLog(@"stopDeviceMotion %d\n",i++);
-    NSLog(@"rollValueLabel  %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.roll));
-    NSLog(@"yawValueLabel   %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.yaw));
-    NSLog(@"pitchValueLabel %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.pitch));
+    NSLog(@"stopDeviceMotion\n");
+    //NSLog(@"roll  %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.roll));
+    //NSLog(@"yaw   %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.yaw));
+    //NSLog(@"pitch %1.0f°", GLKMathRadiansToDegrees(_motionManager.deviceMotion.attitude.pitch));
     
     _fingerRotationX = _savedGyroRotationX;// - _referenceAttitude.roll - ROLL_CORRECTION;
     _fingerRotationY = _savedGyroRotationY;
@@ -521,8 +520,8 @@ int esGenCube ( float radius, float **vertices, float **normals,
             if (_referenceAttitude != nil) {
                 //[attitude multiplyByInverseOfAttitude:_referenceAttitude];
             } else {
-                NSLog(@"Was nil: Set new attitude:", nil);
-                NSLog(@"r %1.0f° y %1.0f° p %1.0f°", GLKMathRadiansToDegrees(attitude.roll),GLKMathRadiansToDegrees(attitude.yaw), GLKMathRadiansToDegrees(attitude.pitch));
+                //NSLog(@"- update: Set new attitude:", nil);
+                //NSLog(@"r %1.0f° y %1.0f° p %1.0f°", GLKMathRadiansToDegrees(attitude.roll),GLKMathRadiansToDegrees(attitude.yaw), GLKMathRadiansToDegrees(attitude.pitch));
                 _referenceAttitude = d.attitude;
             }
             
@@ -548,11 +547,7 @@ int esGenCube ( float radius, float **vertices, float **normals,
                 modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, cRoll); // Up/Down axis
                 modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, cPitch);
                 modelViewMatrix = GLKMatrix4RotateZ(modelViewMatrix, cYaw);
-                
                 modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, ROLL_CORRECTION);
-                
-                //modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, _fingerRotationX);
-                //modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, _fingerRotationY);
                 
                 _savedGyroRotationX = -cRoll - ROLL_CORRECTION; //+ _fingerRotationX;
                 _savedGyroRotationY = cPitch; //+ _fingerRotationY;
@@ -561,7 +556,6 @@ int esGenCube ( float radius, float **vertices, float **normals,
         
     } else {
         modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, -_fingerRotationX);
-        //modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, ROLL_CORRECTION);
         modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, _fingerRotationY);
     }
     
