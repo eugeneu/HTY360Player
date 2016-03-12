@@ -21,4 +21,7 @@
 - (void)startDeviceMotion;
 - (void)stopDeviceMotion;
 
+- getCurrentLayout;
+- (void) nextLayout;
+
 @end

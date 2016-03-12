@@ -45,8 +45,10 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UIButton *gyroButton;
 @property (weak,   nonatomic) IBOutlet UILabel *mapLabel;
+@property (weak,   nonatomic) IBOutlet UILabel *fileNameLabel;
 
 - (IBAction)switchProjection:(id)sender;
+- (IBAction)playNextFile:(id)sender;
 
 @end
 
@@ -80,6 +82,9 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     [self configureControleBackgroundView];
     [self configureBackButton];
     [self configureGyroButton];
+    
+    _fileNameLabel.text = [_videoURL lastPathComponent];
+    _mapLabel.text = [_glkViewController getCurrentLayout];
     
 #if SHOW_DEBUG_LABEL
     self.debugView.hidden = NO;
@@ -671,6 +676,10 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 - (IBAction)switchProjection:(id)sender {
     NSLog(@"Map button pressed\n");
-    _mapLabel.text = @"Cubemap32";
+    [_glkViewController nextLayout];
+    _mapLabel.text = [_glkViewController getCurrentLayout];
+}
+
+- (IBAction)playNextFile:(id)sender {
 }
 @end

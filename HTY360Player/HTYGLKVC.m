@@ -42,6 +42,16 @@ enum {
 };
 GLint uniforms[NUM_UNIFORMS];
 
+// Video rendering layout
+enum videoLayout_t {
+    EQUIRECTANGULAR,
+    CUBEMAP_32,
+    //PLANE_CUBEMAP_32,
+    //CUBEMAP_180,
+    NUM_LAYOUTS
+};
+enum videoLayout_t currentLayout;
+
 
 @interface HTYGLKVC () {
     
@@ -73,6 +83,7 @@ GLint uniforms[NUM_UNIFORMS];
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLProgram *program;
 @property (strong, nonatomic) NSMutableArray *currentTouches;
+@property (strong, nonatomic) NSArray *layoutName;
 
 - (void)setupGL;
 - (void)tearDownGL;
@@ -111,6 +122,9 @@ GLint uniforms[NUM_UNIFORMS];
     
     // Set the default conversion to BT.709, which is the standard for HDTV.
     _preferredConversion = kColorConversion709;
+    
+    currentLayout = CUBEMAP_32;
+    _layoutName = @[ @"Equirectangular", @"Cubemap32", @"PlaneCubemap32", @"Cubemap180"];
     
     [self setupGL];
     
@@ -715,6 +729,14 @@ int esGenCube ( float radius, float **vertices, float **normals,
 
 - (void)handleSingleTapGesture:(UITapGestureRecognizer *)recognizer {
     [_videoPlayerController toggleControls];
+}
+
+- getCurrentLayout {
+    return _layoutName[currentLayout];
+}
+
+- (void) nextLayout {
+    currentLayout = (currentLayout >= NUM_LAYOUTS - 1) ? 0 : (currentLayout + 1);
 }
 
 @end

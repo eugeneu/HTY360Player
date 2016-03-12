@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HTY360PlayerVC">
             <connections>
                 <outlet property="backButton" destination="XuQ-LV-4yQ" id="SFn-6d-4o2"/>
+                <outlet property="fileNameLabel" destination="19y-s7-Gn3" id="sDz-c0-Y0W"/>
                 <outlet property="gyroButton" destination="DR2-sX-Ecz" id="2WI-6m-yy8"/>
                 <outlet property="mapLabel" destination="H9Y-6o-kwi" id="umx-KZ-CH6"/>
                 <outlet property="playButton" destination="3Pr-21-8dz" id="Nom-Nr-PNu"/>
@@ -91,14 +92,37 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glY-Q2-PKp">
+                            <rect key="frame" x="60" y="15" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="9JU-Mh-AKE"/>
+                                <constraint firstAttribute="width" constant="46" id="G2C-iL-haB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <state key="normal" title="NEXT">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="playNextFile:" destination="-1" eventType="touchUpInside" id="4cS-u2-Ig6"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="File Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19y-s7-Gn3">
+                            <rect key="frame" x="60" y="47" width="71" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="glY-Q2-PKp" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="15" id="2SH-2z-cLd"/>
                         <constraint firstItem="DR2-sX-Ecz" firstAttribute="leading" secondItem="AiQ-QS-rTj" secondAttribute="trailing" constant="10" id="7Fd-M4-4aQ"/>
                         <constraint firstItem="3Pr-21-8dz" firstAttribute="centerX" secondItem="utK-WR-lKf" secondAttribute="centerX" id="831-O0-f35"/>
                         <constraint firstItem="XuQ-LV-4yQ" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="8bF-6B-2vv"/>
                         <constraint firstItem="H9Y-6o-kwi" firstAttribute="centerX" secondItem="utK-WR-lKf" secondAttribute="centerX" id="B8u-DG-Q7S"/>
                         <constraint firstAttribute="bottom" secondItem="UtA-4n-mGO" secondAttribute="bottom" constant="8" id="Bvi-0g-Mhb"/>
+                        <constraint firstItem="H9Y-6o-kwi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="19y-s7-Gn3" secondAttribute="trailing" constant="8" id="IJh-HP-pTv"/>
+                        <constraint firstItem="19y-s7-Gn3" firstAttribute="leading" secondItem="XuQ-LV-4yQ" secondAttribute="trailing" constant="8" id="TeJ-ku-pwq"/>
                         <constraint firstAttribute="height" constant="100" id="UAs-oO-mVR"/>
                         <constraint firstItem="H9Y-6o-kwi" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="46" id="UQv-13-fQj"/>
                         <constraint firstItem="UtA-4n-mGO" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="ViZ-mR-inX"/>
@@ -106,7 +130,9 @@
                         <constraint firstItem="3Pr-21-8dz" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="8" id="dzN-aN-3V6"/>
                         <constraint firstAttribute="trailing" secondItem="UtA-4n-mGO" secondAttribute="trailing" constant="8" id="fTD-SF-QXO"/>
                         <constraint firstAttribute="trailing" secondItem="DR2-sX-Ecz" secondAttribute="trailing" constant="8" id="iUo-sZ-4lt"/>
+                        <constraint firstItem="glY-Q2-PKp" firstAttribute="leading" secondItem="XuQ-LV-4yQ" secondAttribute="trailing" constant="8" id="jhu-z2-4hK"/>
                         <constraint firstItem="DR2-sX-Ecz" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="8" id="mF9-di-1US"/>
+                        <constraint firstItem="19y-s7-Gn3" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="47" id="w3y-rn-d6a"/>
                         <constraint firstItem="XuQ-LV-4yQ" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="8" id="zrL-Fb-azK"/>
                     </constraints>
                 </view>
