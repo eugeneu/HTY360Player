@@ -84,6 +84,7 @@
 			children = (
 				405108A11BEF7E3C003BCFF7 /* AppDelegate.h */,
 				405108A21BEF7E3C003BCFF7 /* AppDelegate.m */,
+				4051089F1BEF7E3C003BCFF7 /* main.m */,
 				405108CF1BEF8B76003BCFF7 /* Shader */,
 				405108C11BEF8459003BCFF7 /* 360Player */,
 				405108C51BEF857C003BCFF7 /* Menu */,
@@ -101,7 +102,6 @@
 				447344161C93181900412FE3 /* im360_Golf_cubemap_32_1620x1080p30_x264.mp4 */,
 				443E7B311C74B1A8008CE8E7 /* demo.mp4 */,
 				443E7B2B1C749345008CE8E7 /* demo1.mp4 */,
-				4051089F1BEF7E3C003BCFF7 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

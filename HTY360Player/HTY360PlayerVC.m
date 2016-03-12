@@ -631,6 +631,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     /* After the movie has played to its end time, seek back to time zero
      to play it again. */
     seekToZeroBeforePlay = YES;
+    [self play];
 }
 
 #pragma mark gyro button
