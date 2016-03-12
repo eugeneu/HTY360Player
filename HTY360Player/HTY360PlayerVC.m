@@ -44,6 +44,9 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 @property (strong, nonatomic) IBOutlet UISlider *progressSlider;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UIButton *gyroButton;
+@property (weak,   nonatomic) IBOutlet UILabel *mapLabel;
+
+- (IBAction)switchProjection:(id)sender;
 
 @end
 
@@ -131,6 +134,18 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 -(void)viewWillAppear:(BOOL)animated {
     [self updatePlayButton];
+}
+
+#pragma mark Disable rotation
+
+- (BOOL)shouldAutorotate
+{
+    id currentViewController = self;
+    
+    if ([currentViewController isKindOfClass:[HTY360PlayerVC class]])
+        return NO;
+    
+    return YES;
 }
 
 #pragma mark video communication
@@ -622,8 +637,10 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 - (IBAction)gyroButtonTouched:(id)sender {
     if(_glkViewController.isUsingMotion) {
         [_glkViewController stopDeviceMotion];
+        [_gyroButton setImage:[UIImage imageNamed:@"move_unselected.png"] forState:UIControlStateNormal];
     } else {
         [_glkViewController startDeviceMotion];
+        [_gyroButton setImage:[UIImage imageNamed:@"move.png"] forState:UIControlStateNormal];
     }
     
     _gyroButton.selected = _glkViewController.isUsingMotion;
@@ -650,4 +667,9 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     }
 }
 
+
+- (IBAction)switchProjection:(id)sender {
+    NSLog(@"Map button pressed\n");
+    _mapLabel.text = @"Cubemap32";
+}
 @end

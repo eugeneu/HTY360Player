@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="backButton" destination="XuQ-LV-4yQ" id="SFn-6d-4o2"/>
                 <outlet property="gyroButton" destination="DR2-sX-Ecz" id="2WI-6m-yy8"/>
+                <outlet property="mapLabel" destination="H9Y-6o-kwi" id="umx-KZ-CH6"/>
                 <outlet property="playButton" destination="3Pr-21-8dz" id="Nom-Nr-PNu"/>
                 <outlet property="playerControlBackgroundView" destination="utK-WR-lKf" id="mZV-sx-MoY"/>
                 <outlet property="progressSlider" destination="UtA-4n-mGO" id="93H-Vc-Wi3"/>
@@ -70,14 +71,38 @@
                                 <action selector="gyroButtonTouched:" destination="-1" eventType="touchUpInside" id="vH0-KG-9yS"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AiQ-QS-rTj">
+                            <rect key="frame" x="389" y="15" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="ZuU-pT-yPj"/>
+                                <constraint firstAttribute="height" constant="30" id="nXS-pM-aUy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <state key="normal" title="MAP">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="switchProjection:" destination="-1" eventType="touchUpInside" id="DZs-hc-5pW"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Layout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9Y-6o-kwi">
+                            <rect key="frame" x="244.5" y="46" width="51.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="DR2-sX-Ecz" firstAttribute="leading" secondItem="AiQ-QS-rTj" secondAttribute="trailing" constant="10" id="7Fd-M4-4aQ"/>
                         <constraint firstItem="3Pr-21-8dz" firstAttribute="centerX" secondItem="utK-WR-lKf" secondAttribute="centerX" id="831-O0-f35"/>
                         <constraint firstItem="XuQ-LV-4yQ" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="8bF-6B-2vv"/>
+                        <constraint firstItem="H9Y-6o-kwi" firstAttribute="centerX" secondItem="utK-WR-lKf" secondAttribute="centerX" id="B8u-DG-Q7S"/>
                         <constraint firstAttribute="bottom" secondItem="UtA-4n-mGO" secondAttribute="bottom" constant="8" id="Bvi-0g-Mhb"/>
                         <constraint firstAttribute="height" constant="100" id="UAs-oO-mVR"/>
+                        <constraint firstItem="H9Y-6o-kwi" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="46" id="UQv-13-fQj"/>
                         <constraint firstItem="UtA-4n-mGO" firstAttribute="leading" secondItem="utK-WR-lKf" secondAttribute="leading" constant="8" id="ViZ-mR-inX"/>
+                        <constraint firstItem="AiQ-QS-rTj" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="15" id="VrY-ws-e0y"/>
                         <constraint firstItem="3Pr-21-8dz" firstAttribute="top" secondItem="utK-WR-lKf" secondAttribute="top" constant="8" id="dzN-aN-3V6"/>
                         <constraint firstAttribute="trailing" secondItem="UtA-4n-mGO" secondAttribute="trailing" constant="8" id="fTD-SF-QXO"/>
                         <constraint firstAttribute="trailing" secondItem="DR2-sX-Ecz" secondAttribute="trailing" constant="8" id="iUo-sZ-4lt"/>
@@ -87,6 +112,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <accessibility key="accessibilityConfiguration" label="Layout"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="utK-WR-lKf" secondAttribute="bottom" constant="30" id="M8X-Dv-5Mh"/>
                 <constraint firstItem="utK-WR-lKf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="570" id="Pg6-b2-Vlb"/>
