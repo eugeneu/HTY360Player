@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
-#define SHOW_DEBUG_LABEL 0
-
 @class HTY360PlayerVC;
 
 @interface HTYGLKVC : GLKViewController<UIGestureRecognizerDelegate>

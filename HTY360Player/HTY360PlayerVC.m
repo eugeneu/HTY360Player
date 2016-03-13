@@ -21,6 +21,7 @@ NSString * const kRateKey			= @"rate";
 NSString * const kCurrentItemKey	= @"currentItem";
 NSString * const kStatusKey         = @"status";
 
+
 static void *AVPlayerDemoPlaybackViewControllerRateObservationContext = &AVPlayerDemoPlaybackViewControllerRateObservationContext;
 static void *AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext = &AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext;
 static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPlayerDemoPlaybackViewControllerStatusObservationContext;
@@ -85,10 +86,6 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     
     _fileNameLabel.text = [_videoURL lastPathComponent];
     _mapLabel.text = [_glkViewController getCurrentLayout];
-    
-#if SHOW_DEBUG_LABEL
-    self.debugView.hidden = NO;
-#endif
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification {
@@ -681,5 +678,20 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 }
 
 - (IBAction)playNextFile:(id)sender {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"];
+    NSURL *nextUrl = [[NSURL alloc] initFileURLWithPath:path];
+    
+//    [self removePlayerTimeObserver];
+//    [_player pause];
+//    [_glkViewController removeFromParentViewController];
+//    _glkViewController = nil;
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:nextUrl];
+    
+    if (![[self presentedViewController] isBeingDismissed]) {
+        [self presentViewController:videoController animated:YES completion:nil];
+    }
+    
 }
 @end
