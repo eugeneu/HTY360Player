@@ -9,7 +9,6 @@
 #import "HTYGenericMenuVC.h"
 #import "HTY360PlayerVC.h"
 
-#define DIAPORAMA_DELAY 1.0 // delay between slide image in seconds
 
 @interface HTYGenericMenuVC () {
     
@@ -36,7 +35,7 @@
     return UIInterfaceOrientationMaskLandscape;
 }
 
-#pragma mark launch actions
+#pragma mark Launch actions
 
 -(void) launchVideoWithName:(NSString*)name; {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];

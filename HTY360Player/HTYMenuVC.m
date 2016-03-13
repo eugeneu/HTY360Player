@@ -9,14 +9,13 @@
 @import Photos;
 
 #import "HTYMenuVC.h"
-#import <MobileCoreServices/MobileCoreServices.h>
 #import "HTY360PlayerVC.h"
 
 // Name of Demo Video file
 NSString *demoName = @"im360_Golf_cubemap_32_1620x1080p30_x264";
-//NSString *demoName = @"im360_Golf_cubemap_32_3240x2160p30_x264";
+NSArray *fileNameList; // TODO: Put here a list of tuples (fileNAme, layout)
 
-@interface HTYMenuVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface HTYMenuVC () <UINavigationControllerDelegate>
 @end
 
 @implementation HTYMenuVC
@@ -38,70 +37,29 @@ NSString *demoName = @"im360_Golf_cubemap_32_1620x1080p30_x264";
     return UIInterfaceOrientationMaskLandscape;
 }
 
-#pragma mark button management
+#pragma mark Button management
 
 - (IBAction)playDemo:(id)sender {
     [self launchVideoWithName: demoName];
 }
 
 - (IBAction)playFile:(id)sender {
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
-//    picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-//    picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
-//    picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
-//    [self presentViewController:picker animated:YES completion:nil];
+    // Get list of video files in device library
     PHFetchResult *assetsFetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeVideo options:nil];
-//    int i = 0;
-//    for (PHAsset *asset in assetsFetchResult) {
-//        PHVideoRequestOptions *videoRequestOptions = [[PHVideoRequestOptions alloc] init];
-//        videoRequestOptions.version = PHVideoRequestOptionsVersionOriginal;
-//        
-//        [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:videoRequestOptions resultHandler:^(AVAsset *asset, AVAudioMix *audioMix, NSDictionary *info) {
-//            // the AVAsset object represents the original video file
-//            //NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
-//            NSURL *url = [(AVURLAsset *)asset URL];
-////            NSLog(@"--------------------------------------------");
-////            NSLog(@"INFO: %@\n", info);
-////            NSLog(@"ASSET: %@\n", asset);
-//            NSLog(@"URL %d: %@",i, url);
-//            //HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url];
-//            //[self presentViewController:videoController animated:YES completion:nil];
-//        }];
-//        //break;
-//        i++;
-//    }
     __block AVAsset *avasset;
+    // Take the last added video
     PHAsset *asset = [assetsFetchResult lastObject];
-    //NSLog(@"%@",asset);
+    // Use original file
     PHVideoRequestOptions *videoRequestOptions = [[PHVideoRequestOptions alloc] init];
     videoRequestOptions.version = PHVideoRequestOptionsVersionOriginal;
     [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:videoRequestOptions resultHandler:^(AVAsset *asset, AVAudioMix *audioMix, NSDictionary *info) {
-        //NSLog(@"ASSET: %@\n", asset);
         avasset = asset;
     }];
-    NSURL *url = nil;
-    while(!(url = [(AVURLAsset *)avasset URL]));
+    NSURL *url = nil; int timer = 0;
+    while(!(url = [(AVURLAsset *)avasset URL])||timer<1000) timer++; // TODO: Find a way to wait for it properly
     NSLog(@"Playing %@",url);
     HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url];
     [self presentViewController:videoController animated:YES completion:nil];
-}
-
-#pragma mark - UIImagePickerControllerDelegate
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    //  NSLog(@"%@", [info objectForKey:UIImagePickerControllerMediaURL]);
-    NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
-    
-    NSLog(@"Playing %@",url);
-    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url];
-    
-    //  if(![[self presentedViewController] isBeingDismissed])
-    //  {
-    [self presentViewController:videoController animated:YES completion:nil];
-    //  }
 }
 
 @end
