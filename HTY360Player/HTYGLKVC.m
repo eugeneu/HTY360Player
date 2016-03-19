@@ -16,8 +16,8 @@
 
 
 #define MAX_OVERTURE 95.0
-#define MIN_OVERTURE 25.0
-#define DEFAULT_OVERTURE 85.0
+#define MIN_OVERTURE 65.0
+#define DEFAULT_OVERTURE 95.0
 
 #define ES_PI  (3.14159265f)
 
@@ -47,7 +47,7 @@ enum videoLayout_t {
     EQUIRECTANGULAR,
     CUBEMAP_32,
     //PLANE_CUBEMAP_32,
-    //CUBEMAP_180,
+    CUBEMAP_180,
     NUM_LAYOUTS
 };
 enum videoLayout_t currentLayout;
@@ -342,6 +342,151 @@ int esGenCube ( float radius, float **vertices, float **normals,
     return numIndices;
 }
 
+// Cube180 mesh
+int esGenCube180 ( float radius, float **vertices, float **normals,
+               float **texCoords, uint16_t **indices, int *numVertices_out) {
+    
+    int numVertices = 40;
+    int numIndices = 40/4 * 6; // TODO: Check the number
+    float r = radius;
+    
+    // Allocate space for mesh data
+    if ( vertices != NULL )
+        *vertices = malloc ( sizeof(float) * 3 * numVertices );
+    if ( texCoords != NULL )
+        *texCoords = malloc ( sizeof(float) * 2 * numVertices );
+    if ( indices != NULL )
+        *indices = malloc ( sizeof(uint16_t) * numIndices );
+    
+    
+    // Vertices for cube_180 in 3D space
+    //
+    //           10-----------9
+    //           /|          /|         ^ y
+    //         11-----------8 |         |
+    //         /| |        /| |         |
+    //        6-----------7 | |         |
+    //        | | |       | | |         /------> x
+    //        | | 4- - - -|-|-3        /
+    //        | |/        | |/        |/
+    //        | 5- - - - -|-2         'z
+    //        |/          |/
+    //        0-----------1
+    //
+    //                   X                           Y                           Z
+#define ADD_VXc180_0(n)  (*vertices)[n*3 + 0] = -r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] = -r;
+#define ADD_VXc180_1(n)  (*vertices)[n*3 + 0] =  r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] = -r;
+#define ADD_VXc180_2(n)  (*vertices)[n*3 + 0] =  r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] =  0;
+#define ADD_VXc180_3(n)  (*vertices)[n*3 + 0] =  r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] =  r;
+#define ADD_VXc180_4(n)  (*vertices)[n*3 + 0] = -r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] =  r;
+#define ADD_VXc180_5(n)  (*vertices)[n*3 + 0] = -r; (*vertices)[n*3 + 1] =  r; (*vertices)[n*3 + 2] =  0;
+    
+#define ADD_VXc180_6(n)  (*vertices)[n*3 + 0] = -r; (*vertices)[n*3 + 1] = -r; (*vertices)[n*3 + 2] = -r;
+#define ADD_VXc180_7(n)  (*vertices)[n*3 + 0] =  r; (*vertices)[n*3 + 1] = -r; (*vertices)[n*3 + 2] = -r;
+#define ADD_VXc180_8(n)  (*vertices)[n*3 + 0] =  r; (*vertices)[n*3 + 1] = -r; (*vertices)[n*3 + 2] =  0;
+#define ADD_VXc180_9(n)  (*vertices)[n*3 + 0] =  r; (*vertices)[n*3 + 1] = -r; (*vertices)[n*3 + 2] =  r;
+#define ADD_VXc180_10(n) (*vertices)[n*3 + 0] = -r; (*vertices)[n*3 + 1] = -r; (*vertices)[n*3 + 2] =  r;
+#define ADD_VXc180_11(n) (*vertices)[n*3 + 0] = -r; (*vertices)[n*3 + 1] = -r; (*vertices)[n*3 + 2] =  0;
+    
+    //   Vertices on texture plane
+    //                        8---+---11     -->  w5 <--
+    //        7---+---6 8---7 |   C   |         +---+---+---+---+---+       A: +Z
+    //        |       | |   | 7---+---6         |       |   |   C   |       B: +X
+    //        +   A   + + B +10---9 6---11      +   A   + B +---+---+       C: +Y
+    //        |       | |   | | f | |   |       |       |   | f |   |       D: -X
+    //        1---+---0 2---1 4---3 + D +       +-+-+-i-+---+---+ D +       E: -Y
+    //  9-8 11-10 9-i-10  1---+---0 |   |       |g|h|---|   E   |   |       f: -z
+    //  |g|  |h|  8---11  |   E   | 0---5       +-+-+-j-+---+---+---+       g: +x
+    //  3-2  5-4  2-j-5   2---+---5          -->w10<--                      h: -x
+    //            3---4                                                     i: +y
+    //                                                                      j: -y
+    
+    float top = 0.0f;  float bottom = 1.0f;
+    float left = 0.0f; float right = 1.0f;
+    float w5 = 0.2; float w10 = 0.1;
+    float h5 = 1.0/3.0; float h10 = 1.0/6.0;
+    
+    
+    // Assing texture coordinates to index of vertex
+#define ADD_TX(n,x,y) (*texCoords)[n*2 + 0] = x; (*texCoords)[n*2 + 1] =  y;
+    
+    // A: +Z    | Vertices 1,0,6,7
+    ADD_VXc180_1(0)  ADD_TX(0, left, 2*h5)
+    ADD_VXc180_0(1)  ADD_TX(1, 2*w5, 2*h5)
+    ADD_VXc180_6(2)  ADD_TX(2, 2*w5, top)
+    ADD_VXc180_7(3)  ADD_TX(3, left, top)
+    
+    // B: +X    | Vertices 2,1,7,8
+    ADD_VXc180_2(4)  ADD_TX(4, 2*w5, 2*h5)
+    ADD_VXc180_1(5)  ADD_TX(5, 3*w5, 2*h5)
+    ADD_VXc180_7(6)  ADD_TX(6, 3*w5, top)
+    ADD_VXc180_8(7)  ADD_TX(7, 2*w5, top)
+    
+    // C: +Y    | Vertices 7,6,11,8
+    ADD_VXc180_7(8)   ADD_TX(8,  3*w5 , h5)
+    ADD_VXc180_6(9)   ADD_TX(9,  right, h5)
+    ADD_VXc180_11(10) ADD_TX(10, right, top)
+    ADD_VXc180_8(11)  ADD_TX(11, 3*w5 , top)
+    
+    // D: -X    | Vertices 0,5,11,6
+    ADD_VXc180_0(12)  ADD_TX(12, 4*w5 , bottom)
+    ADD_VXc180_5(13)  ADD_TX(13, right, bottom)
+    ADD_VXc180_11(14) ADD_TX(14, right, h5)
+    ADD_VXc180_6(15)  ADD_TX(15, 4*w5 , h5)
+    
+    // E: -Y    | Vertices 2,5,0,1
+    ADD_VXc180_2(16)  ADD_TX(16, 2*w5, bottom)
+    ADD_VXc180_5(17)  ADD_TX(17, 4*w5, bottom)
+    ADD_VXc180_0(18)  ADD_TX(18, 4*w5, 2*h5)
+    ADD_VXc180_1(19)  ADD_TX(19, 2*w5, 2*h5)
+    
+    // f: -z    | Vertices 4,3,9,10
+    ADD_VXc180_4(20)  ADD_TX(20, 3*w5, 2*h5)
+    ADD_VXc180_3(21)  ADD_TX(21, 4*w5, 2*h5)
+    ADD_VXc180_9(22)  ADD_TX(22, 4*w5, h5)
+    ADD_VXc180_10(23) ADD_TX(23, 3*w5, h5)
+    
+    // g: +x    | Vertices 3,2,8,9
+    ADD_VXc180_3(24)  ADD_TX(24, left, bottom)
+    ADD_VXc180_2(25)  ADD_TX(25, w10 , bottom)
+    ADD_VXc180_8(26)  ADD_TX(26, w10 , 2*h5)
+    ADD_VXc180_9(27)  ADD_TX(27, left, 2*h5)
+    
+    // h: -x    | Vertices 5,4,10,11
+    ADD_VXc180_5(28)  ADD_TX(28, w10  , bottom)
+    ADD_VXc180_4(29)  ADD_TX(29, 2*w10, bottom)
+    ADD_VXc180_10(30) ADD_TX(30, 2*w10, 2*h5)
+    ADD_VXc180_11(31) ADD_TX(31, w10  , 2*h5)
+    
+    // i: +y    | Vertices 8,11,10,9
+    ADD_VXc180_8(32)  ADD_TX(32, w5  , 2*h5+h10)
+    ADD_VXc180_11(33) ADD_TX(33, 2*w5, 2*h5+h10)
+    ADD_VXc180_10(34) ADD_TX(34, 2*w5, 2*h5)
+    ADD_VXc180_9(35)  ADD_TX(35, w5  , 2*h5)
+    
+    // j: -y    | Vertices 3,4,5,2
+    ADD_VXc180_3(36)  ADD_TX(36, w5  , bottom)
+    ADD_VXc180_4(37)  ADD_TX(37, 2*w5, bottom)
+    ADD_VXc180_5(38)  ADD_TX(38, 2*w5, 2*h5+h10)
+    ADD_VXc180_2(39)  ADD_TX(39, w5  , 2*h5+h10)
+    
+    
+    // Generate the indices
+    if ( indices != NULL ) {
+        uint16_t *indexBuf = (*indices);
+        for ( int i = 0; i < numVertices ; i+=4 ) {
+            *indexBuf++ = i + 0; *indexBuf++ = i + 1; *indexBuf++ = i + 2;
+            *indexBuf++ = i + 2; *indexBuf++ = i + 3; *indexBuf++ = i + 0;
+        }
+    }
+    
+    if (numVertices_out) {
+        *numVertices_out = numVertices;
+    }
+    
+    return numIndices;
+}
+
 
 #pragma mark Setup GL
 
@@ -356,7 +501,7 @@ int esGenCube ( float radius, float **vertices, float **normals,
     int numVertices = 0;
     //_numIndices =  esGenSphere(200, 1.0f, &vVertices,  NULL,
     //                           &vTextCoord, &indices, &numVertices);
-    _numIndices =  esGenCube( .707f, &vVertices,  NULL,
+    _numIndices =  esGenCube180( .707f, &vVertices,  NULL,
                                &vTextCoord, &indices, &numVertices);
     
     glGenVertexArraysOES(1, &_vertexArrayID);
