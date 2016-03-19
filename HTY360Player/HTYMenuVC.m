@@ -12,7 +12,7 @@
 #import "HTY360PlayerVC.h"
 
 // Name of Demo Video file
-NSString *demoName = @"im360_Golf_cubemap_32_1620x1080p30_x264";
+NSString *demoName = @"ld5_Drive_cubemap_180_1800x1080p24_x264";
 NSArray *fileNameList; // TODO: Put here a list of tuples (fileNAme, layout)
 
 @interface HTYMenuVC () <UINavigationControllerDelegate>

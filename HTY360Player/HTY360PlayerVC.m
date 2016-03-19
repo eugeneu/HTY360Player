@@ -678,7 +678,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 }
 
 - (IBAction)playNextFile:(id)sender {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ld5_Drive_cubemap_32_1620x1080p25_x264" ofType:@"mp4"];
     NSURL *nextUrl = [[NSURL alloc] initFileURLWithPath:path];
     
 //    [self removePlayerTimeObserver];
