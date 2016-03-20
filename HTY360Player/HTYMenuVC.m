@@ -13,6 +13,7 @@
 
 // Name of Demo Video file
 NSString *demoName = @"ld5_Drive_cubemap_180_1800x1080p24_x264";
+int demoLayout = 2;
 NSArray *fileNameList; // TODO: Put here a list of tuples (fileNAme, layout)
 
 @interface HTYMenuVC () <UINavigationControllerDelegate>
@@ -40,7 +41,7 @@ NSArray *fileNameList; // TODO: Put here a list of tuples (fileNAme, layout)
 #pragma mark Button management
 
 - (IBAction)playDemo:(id)sender {
-    [self launchVideoWithName: demoName];
+    [self launchVideoWithNameAndLayout:demoName layout:demoLayout];
 }
 
 - (IBAction)playFile:(id)sender {
@@ -58,7 +59,7 @@ NSArray *fileNameList; // TODO: Put here a list of tuples (fileNAme, layout)
     NSURL *url = nil; int timer = 0;
     while(!(url = [(AVURLAsset *)avasset URL])||timer<1000) timer++; // TODO: Find a way to wait for it properly
     NSLog(@"Playing %@",url);
-    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url];
+    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url fileLayout:1];
     [self presentViewController:videoController animated:YES completion:nil];
 }
 

@@ -55,14 +55,14 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 @implementation HTY360PlayerVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSURL*)url {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSURL*)url fileLayout:(int)fileLayout {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self setVideoURL:url];
+        [self setFileLayout:fileLayout];
     }
     return self;
 }
-
 
 -(void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -76,7 +76,8 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     
     [self setupVideoPlaybackForURL:_videoURL];
     
-    [self configureGLKView];
+    NSLog(@" HTY360PlayerVC::viewDidLoad - _fileLayout %d", _fileLayout);
+    [self configureGLKView: _fileLayout];
     
     [self configurePlayButton];
     [self configureProgressSlider];
@@ -248,8 +249,11 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 
 #pragma mark rendering glk view management
 
--(void)configureGLKView {
+-(void)configureGLKView: (enum videoLayout_t) layout {
     _glkViewController = [[HTYGLKVC alloc] init];
+    
+    NSLog(@"_glkViewController.currentLayout = layout\n");
+    _glkViewController.currentLayout = layout;
     
     _glkViewController.videoPlayerController = self;
     
@@ -678,7 +682,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 }
 
 - (IBAction)playNextFile:(id)sender {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"ld5_Drive_cubemap_32_1620x1080p25_x264" ofType:@"mp4"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ld5_Drive_cubemap_32_1620x1080p24_x264" ofType:@"mp4"];
     NSURL *nextUrl = [[NSURL alloc] initFileURLWithPath:path];
     
 //    [self removePlayerTimeObserver];
@@ -687,7 +691,7 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
 //    _glkViewController = nil;
 //    [self dismissViewControllerAnimated:YES completion:nil];
     
-    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:nextUrl];
+    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:nextUrl fileLayout:1];
     
     if (![[self presentedViewController] isBeingDismissed]) {
         [self presentViewController:videoController animated:YES completion:nil];

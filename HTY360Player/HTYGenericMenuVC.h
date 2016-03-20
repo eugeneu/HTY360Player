@@ -11,6 +11,7 @@
 @interface HTYGenericMenuVC : UIViewController
 
 -(void) launchVideoWithName:(NSString*)url;
+-(void) launchVideoWithNameAndLayout:(NSString*)url layout:(int)layout;
 -(void) openURLWithString:(NSString*)stringurl;
 
 @end

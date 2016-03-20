@@ -42,16 +42,6 @@ enum {
 };
 GLint uniforms[NUM_UNIFORMS];
 
-// Video rendering layout
-enum videoLayout_t {
-    EQUIRECTANGULAR,
-    CUBEMAP_32,
-    //PLANE_CUBEMAP_32,
-    CUBEMAP_180,
-    NUM_LAYOUTS
-};
-enum videoLayout_t currentLayout;
-
 
 @interface HTYGLKVC () {
     
@@ -123,8 +113,8 @@ enum videoLayout_t currentLayout;
     // Set the default conversion to BT.709, which is the standard for HDTV.
     _preferredConversion = kColorConversion709;
     
-    currentLayout = CUBEMAP_32;
-    _layoutName = @[ @"Equirectangular", @"Cubemap32", @"PlaneCubemap32", @"Cubemap180"];
+    //_currentLayout = CUBEMAP_32;
+    _layoutName = @[ @"Equirectangular", @"Cubemap32", @"Cubemap180"];
     
     [self setupGL];
     
@@ -202,7 +192,7 @@ int esGenSphere ( int numSlices, float radius, float **vertices, float **normals
                 (*vertices)[vertex + 2] = radius * sinf ( angleStep * (float)i ) * cosf ( angleStep * (float)j ); // Z
             }
             
-            // Assign 2D plane coords to each element of vertices array
+            // Assign texture coords to each element of vertices array
             if ( texCoords ) {
                 int texIndex = ( i * (numSlices + 1) + j ) * 2;
                 (*texCoords)[texIndex + 0] = (float) j / (float) numSlices;
@@ -406,6 +396,9 @@ int esGenCube180 ( float radius, float **vertices, float **normals,
     float w5 = 0.2; float w10 = 0.1;
     float h5 = 1.0/3.0; float h10 = 1.0/6.0;
     
+    float hSh = 1.0/1800.0; // horizontal shift
+    float vSh = 1.0/1080.0; // vertical shift
+    
     
     // Assing texture coordinates to index of vertex
 #define ADD_TX(n,x,y) (*texCoords)[n*2 + 0] = x; (*texCoords)[n*2 + 1] =  y;
@@ -417,58 +410,58 @@ int esGenCube180 ( float radius, float **vertices, float **normals,
     ADD_VXc180_7(3)  ADD_TX(3, left, top)
     
     // B: +X    | Vertices 2,1,7,8
-    ADD_VXc180_2(4)  ADD_TX(4, 2*w5, 2*h5)
+    ADD_VXc180_2(4)  ADD_TX(4, 2*w5 +hSh, 2*h5)
     ADD_VXc180_1(5)  ADD_TX(5, 3*w5, 2*h5)
     ADD_VXc180_7(6)  ADD_TX(6, 3*w5, top)
-    ADD_VXc180_8(7)  ADD_TX(7, 2*w5, top)
+    ADD_VXc180_8(7)  ADD_TX(7, 2*w5 +hSh, top)
     
     // C: +Y    | Vertices 7,6,11,8
-    ADD_VXc180_7(8)   ADD_TX(8,  3*w5 , h5)
+    ADD_VXc180_7(8)   ADD_TX(8,  3*w5 +hSh, h5)
     ADD_VXc180_6(9)   ADD_TX(9,  right, h5)
     ADD_VXc180_11(10) ADD_TX(10, right, top)
-    ADD_VXc180_8(11)  ADD_TX(11, 3*w5 , top)
+    ADD_VXc180_8(11)  ADD_TX(11, 3*w5 +hSh, top)
     
     // D: -X    | Vertices 0,5,11,6
-    ADD_VXc180_0(12)  ADD_TX(12, 4*w5 , bottom)
+    ADD_VXc180_0(12)  ADD_TX(12, 4*w5 +hSh, bottom)
     ADD_VXc180_5(13)  ADD_TX(13, right, bottom)
-    ADD_VXc180_11(14) ADD_TX(14, right, h5)
-    ADD_VXc180_6(15)  ADD_TX(15, 4*w5 , h5)
+    ADD_VXc180_11(14) ADD_TX(14, right, h5 +vSh)
+    ADD_VXc180_6(15)  ADD_TX(15, 4*w5 +hSh, h5 +vSh)
     
     // E: -Y    | Vertices 2,5,0,1
-    ADD_VXc180_2(16)  ADD_TX(16, 2*w5, bottom)
+    ADD_VXc180_2(16)  ADD_TX(16, 2*w5+hSh, bottom)
     ADD_VXc180_5(17)  ADD_TX(17, 4*w5, bottom)
-    ADD_VXc180_0(18)  ADD_TX(18, 4*w5, 2*h5)
-    ADD_VXc180_1(19)  ADD_TX(19, 2*w5, 2*h5)
+    ADD_VXc180_0(18)  ADD_TX(18, 4*w5, 2*h5 +vSh)
+    ADD_VXc180_1(19)  ADD_TX(19, 2*w5+hSh, 2*h5 +vSh)
     
     // f: -z    | Vertices 4,3,9,10
-    ADD_VXc180_4(20)  ADD_TX(20, 3*w5, 2*h5)
+    ADD_VXc180_4(20)  ADD_TX(20, 3*w5+hSh, 2*h5)
     ADD_VXc180_3(21)  ADD_TX(21, 4*w5, 2*h5)
-    ADD_VXc180_9(22)  ADD_TX(22, 4*w5, h5)
-    ADD_VXc180_10(23) ADD_TX(23, 3*w5, h5)
+    ADD_VXc180_9(22)  ADD_TX(22, 4*w5, h5 +vSh)
+    ADD_VXc180_10(23) ADD_TX(23, 3*w5+hSh, h5 +vSh)
     
     // g: +x    | Vertices 3,2,8,9
     ADD_VXc180_3(24)  ADD_TX(24, left, bottom)
     ADD_VXc180_2(25)  ADD_TX(25, w10 , bottom)
-    ADD_VXc180_8(26)  ADD_TX(26, w10 , 2*h5)
-    ADD_VXc180_9(27)  ADD_TX(27, left, 2*h5)
+    ADD_VXc180_8(26)  ADD_TX(26, w10 , 2*h5 +vSh)
+    ADD_VXc180_9(27)  ADD_TX(27, left, 2*h5 +vSh)
     
     // h: -x    | Vertices 5,4,10,11
-    ADD_VXc180_5(28)  ADD_TX(28, w10  , bottom)
+    ADD_VXc180_5(28)  ADD_TX(28, w10  +hSh, bottom)
     ADD_VXc180_4(29)  ADD_TX(29, 2*w10, bottom)
-    ADD_VXc180_10(30) ADD_TX(30, 2*w10, 2*h5)
-    ADD_VXc180_11(31) ADD_TX(31, w10  , 2*h5)
+    ADD_VXc180_10(30) ADD_TX(30, 2*w10, 2*h5 +vSh)
+    ADD_VXc180_11(31) ADD_TX(31, w10  +hSh, 2*h5 +vSh)
     
     // i: +y    | Vertices 8,11,10,9
-    ADD_VXc180_8(32)  ADD_TX(32, w5  , 2*h5+h10)
+    ADD_VXc180_8(32)  ADD_TX(32, w5  +hSh, 2*h5+h10)
     ADD_VXc180_11(33) ADD_TX(33, 2*w5, 2*h5+h10)
-    ADD_VXc180_10(34) ADD_TX(34, 2*w5, 2*h5)
-    ADD_VXc180_9(35)  ADD_TX(35, w5  , 2*h5)
+    ADD_VXc180_10(34) ADD_TX(34, 2*w5, 2*h5 +vSh)
+    ADD_VXc180_9(35)  ADD_TX(35, w5  +hSh, 2*h5 +vSh)
     
     // j: -y    | Vertices 3,4,5,2
-    ADD_VXc180_3(36)  ADD_TX(36, w5  , bottom)
+    ADD_VXc180_3(36)  ADD_TX(36, w5  +hSh, bottom)
     ADD_VXc180_4(37)  ADD_TX(37, 2*w5, bottom)
-    ADD_VXc180_5(38)  ADD_TX(38, 2*w5, 2*h5+h10)
-    ADD_VXc180_2(39)  ADD_TX(39, w5  , 2*h5+h10)
+    ADD_VXc180_5(38)  ADD_TX(38, 2*w5, 2*h5+h10 +vSh)
+    ADD_VXc180_2(39)  ADD_TX(39, w5  +hSh, 2*h5+h10 +vSh)
     
     
     // Generate the indices
@@ -499,10 +492,29 @@ int esGenCube180 ( float radius, float **vertices, float **normals,
     GLfloat *vTextCoord = NULL;
     GLushort *indices = NULL;
     int numVertices = 0;
+    NSLog(@"Layout set to: %d", _currentLayout);
     //_numIndices =  esGenSphere(200, 1.0f, &vVertices,  NULL,
     //                           &vTextCoord, &indices, &numVertices);
-    _numIndices =  esGenCube180( .707f, &vVertices,  NULL,
-                               &vTextCoord, &indices, &numVertices);
+    //_numIndices =  esGenCube180( .707f, &vVertices,  NULL,
+    //                           &vTextCoord, &indices, &numVertices);
+    switch (_currentLayout) {
+        case EQUIRECTANGULAR:
+            _numIndices =  esGenSphere(200, 1.0f, &vVertices,  NULL, &vTextCoord, &indices, &numVertices);
+            break;
+            
+        case CUBEMAP_32:
+            _numIndices =  esGenCube( .707f, &vVertices,  NULL, &vTextCoord, &indices, &numVertices);
+            break;
+            
+        case CUBEMAP_180:
+            _numIndices =  esGenCube180( .707f, &vVertices,  NULL, &vTextCoord, &indices, &numVertices);
+            break;
+            
+        default:
+            NSLog(@"Error: no layout specified!");
+            return;
+            break;
+    }
     
     glGenVertexArraysOES(1, &_vertexArrayID);
     glBindVertexArrayOES(_vertexArrayID);
@@ -850,11 +862,12 @@ int esGenCube180 ( float radius, float **vertices, float **normals,
 }
 
 - getCurrentLayout {
-    return _layoutName[currentLayout];
+    return _layoutName[_currentLayout];
 }
 
 - (void) nextLayout {
-    currentLayout = (currentLayout >= NUM_LAYOUTS - 1) ? 0 : (currentLayout + 1);
+    _currentLayout = (_currentLayout >= NUM_LAYOUTS - 1) ? 0 : (_currentLayout + 1);
 }
+
 
 @end
