@@ -40,7 +40,17 @@
 -(void) launchVideoWithName:(NSString*)name; {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
     NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
-    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url];
+    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url fileLayout:1];
+    
+    if (![[self presentedViewController] isBeingDismissed]) {
+        [self presentViewController:videoController animated:YES completion:nil];
+    }
+}
+
+-(void) launchVideoWithNameAndLayout:(NSString*)name layout:(int)layout; {
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
+    HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url fileLayout:layout];
     
     if (![[self presentedViewController] isBeingDismissed]) {
         [self presentViewController:videoController animated:YES completion:nil];
