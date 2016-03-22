@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EVt-GQ-ZBs">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Experiment0TopVC-->
+        <scene sceneID="nYp-pe-kTI">
+            <objects>
+                <viewController id="oyb-fR-h1o" userLabel="Experiment0TopVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SI5-O2-f5s"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vcb-cs-jNi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3NX-Rk-Kbo">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pb0-3M-BSB">
+                                <rect key="frame" x="240" y="258" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="ASJ-jA-CnH"/>
+                                    <constraint firstAttribute="height" constant="40" id="Hgd-6b-DNp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Evaluating"/>
+                                <connections>
+                                    <segue destination="Yfe-9c-VXF" kind="show" id="T4u-6X-wL3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-cj-dnL">
+                                <rect key="frame" x="240" y="198" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="T1i-tB-P9l"/>
+                                    <constraint firstAttribute="width" constant="120" id="bEs-43-IUh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Training"/>
+                                <connections>
+                                    <segue destination="vSo-HT-Hkd" kind="show" id="ti8-Is-gXu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7QM-cj-dnL" firstAttribute="centerX" secondItem="3NX-Rk-Kbo" secondAttribute="centerX" id="RL7-gB-28q"/>
+                            <constraint firstItem="pb0-3M-BSB" firstAttribute="centerX" secondItem="3NX-Rk-Kbo" secondAttribute="centerX" id="aEV-MM-W0H"/>
+                            <constraint firstItem="pb0-3M-BSB" firstAttribute="top" secondItem="7QM-cj-dnL" secondAttribute="bottom" constant="20" id="lGD-tz-8b3"/>
+                            <constraint firstItem="7QM-cj-dnL" firstAttribute="centerY" secondItem="3NX-Rk-Kbo" secondAttribute="centerY" constant="-50" id="qcf-HU-Prg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="MMSPG Experiment" id="aEl-f4-jXP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5B-aQ-XLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1139" y="392"/>
+        </scene>
+        <!--TrainingVC-->
+        <scene sceneID="rcd-gy-Crf">
+            <objects>
+                <viewController id="vSo-HT-Hkd" userLabel="TrainingVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hgo-0V-IqM"/>
+                        <viewControllerLayoutGuide type="bottom" id="lWp-zU-ukZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="06w-mt-ajq">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnU-Lw-Z3B">
+                                <rect key="frame" x="170" y="248" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7HH-IP-dQy"/>
+                                    <constraint firstAttribute="width" constant="120" id="8iO-6g-BAu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-Z5-wyt">
+                                <rect key="frame" x="310" y="248" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="l6v-gl-FWn"/>
+                                    <constraint firstAttribute="width" constant="120" id="shu-nG-OMd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play B"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fU1-Z5-wyt" firstAttribute="leading" secondItem="FnU-Lw-Z3B" secondAttribute="trailing" constant="20" id="KlF-Uy-blh"/>
+                            <constraint firstItem="fU1-Z5-wyt" firstAttribute="centerY" secondItem="06w-mt-ajq" secondAttribute="centerY" id="Lyk-BU-39m"/>
+                            <constraint firstItem="FnU-Lw-Z3B" firstAttribute="centerX" secondItem="06w-mt-ajq" secondAttribute="centerX" constant="-70" id="O3t-iP-i4F"/>
+                            <constraint firstItem="fU1-Z5-wyt" firstAttribute="top" secondItem="FnU-Lw-Z3B" secondAttribute="top" id="XmH-BX-Kd3"/>
+                            <constraint firstItem="FnU-Lw-Z3B" firstAttribute="centerY" secondItem="06w-mt-ajq" secondAttribute="centerY" id="tcF-qP-7ql"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHe-jV-SZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2080" y="71"/>
+        </scene>
+        <!--EvaluatingVC-->
+        <scene sceneID="dg2-5s-a3H">
+            <objects>
+                <viewController id="Yfe-9c-VXF" userLabel="EvaluatingVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lLB-bg-nza"/>
+                        <viewControllerLayoutGuide type="bottom" id="3cL-7L-BPb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DVJ-u5-uMz">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lC2-Wm-cfU">
+                                <rect key="frame" x="170" y="8" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Yfw-FC-DUZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="wfE-mQ-Zbk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 1A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl4-XX-Aq0">
+                                <rect key="frame" x="310" y="8" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="K5J-3n-jGk"/>
+                                    <constraint firstAttribute="height" constant="40" id="YUV-ey-zxC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 1B"/>
+                                <connections>
+                                    <segue destination="aee-y8-Dhz" kind="show" id="IbQ-MI-g5p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-H0-nfT">
+                                <rect key="frame" x="170" y="56" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="gse-gr-Gng"/>
+                                    <constraint firstAttribute="height" constant="40" id="jBV-kc-St8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 2A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pja-C5-nN4">
+                                <rect key="frame" x="310" y="56" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="7wi-8c-lPC"/>
+                                    <constraint firstAttribute="height" constant="40" id="j5q-gB-BPk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 2B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuE-9H-N6S">
+                                <rect key="frame" x="170" y="104" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="7RP-eV-kRT"/>
+                                    <constraint firstAttribute="height" constant="40" id="aWW-Yp-uju"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 3A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-Kx-345">
+                                <rect key="frame" x="310" y="104" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1q5-YN-Tih"/>
+                                    <constraint firstAttribute="width" constant="120" id="CQt-8b-ydd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 3B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yr8-We-yPt">
+                                <rect key="frame" x="170" y="152" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="EuG-8d-cFh"/>
+                                    <constraint firstAttribute="height" constant="40" id="Opd-Zl-U8D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 4A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgs-8Q-gsN">
+                                <rect key="frame" x="310" y="152" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0cj-jR-k3u"/>
+                                    <constraint firstAttribute="width" constant="120" id="ezQ-de-YhX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 4B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dw7-JX-OyY">
+                                <rect key="frame" x="170" y="200" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="CRe-Tf-iBw"/>
+                                    <constraint firstAttribute="height" constant="40" id="DsA-lm-Mn1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 5A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGN-tC-k1X">
+                                <rect key="frame" x="310" y="200" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Pff-1p-Jef"/>
+                                    <constraint firstAttribute="width" constant="120" id="vRg-o8-CdF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 5B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQ0-kl-xhk">
+                                <rect key="frame" x="170" y="248" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="X7W-ct-e1l"/>
+                                    <constraint firstAttribute="height" constant="40" id="fzr-HY-EN8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 6A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnY-de-xPb">
+                                <rect key="frame" x="310" y="248" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="69S-SP-AOr"/>
+                                    <constraint firstAttribute="width" constant="120" id="pnK-vg-Elj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 6B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcz-oz-287">
+                                <rect key="frame" x="170" y="296" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Kj8-L5-vO1"/>
+                                    <constraint firstAttribute="height" constant="40" id="fom-Zo-GP9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 7A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QP8-zt-e7h">
+                                <rect key="frame" x="310" y="296" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4cC-yb-GMc"/>
+                                    <constraint firstAttribute="width" constant="120" id="rEf-jl-PMn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 7B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3If-aD-KQP">
+                                <rect key="frame" x="170" y="344" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="AkE-oc-gdh"/>
+                                    <constraint firstAttribute="height" constant="40" id="X0D-sb-ahU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 8A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEh-vo-740">
+                                <rect key="frame" x="310" y="344" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="C8a-m5-YUN"/>
+                                    <constraint firstAttribute="width" constant="120" id="oiY-o5-P7k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 8B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP1-sC-W6l">
+                                <rect key="frame" x="170" y="392" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="CGL-tu-55z"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZIF-sw-L07"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 9A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPE-1N-X0p">
+                                <rect key="frame" x="310" y="392" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="aDI-cB-Wgf"/>
+                                    <constraint firstAttribute="width" constant="120" id="y6p-WT-bY8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 9B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXm-yy-TX6">
+                                <rect key="frame" x="170" y="440" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="H5c-zm-EWd"/>
+                                    <constraint firstAttribute="width" constant="120" id="Uec-Oc-Svq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 10A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgm-4B-EKD">
+                                <rect key="frame" x="310" y="440" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8xg-cY-cXU"/>
+                                    <constraint firstAttribute="width" constant="120" id="QwK-en-E1y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 10B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9O-xR-s1U">
+                                <rect key="frame" x="170" y="488" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="4kc-H9-qg8"/>
+                                    <constraint firstAttribute="height" constant="40" id="cxK-eQ-QVe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 11A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R5-NX-M23">
+                                <rect key="frame" x="310" y="488" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Shh-Ky-LaA"/>
+                                    <constraint firstAttribute="width" constant="120" id="sX9-Rh-Cct"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 11B"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urm-eJ-pTp">
+                                <rect key="frame" x="170" y="536" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="9HQ-gC-qSS"/>
+                                    <constraint firstAttribute="height" constant="40" id="TqV-yj-PWA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 12A"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3m-fF-gWw">
+                                <rect key="frame" x="310" y="536" width="120" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Aav-lU-tng"/>
+                                    <constraint firstAttribute="width" constant="120" id="XH4-Eb-nm1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play 12B"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rnY-de-xPb" firstAttribute="top" secondItem="jQ0-kl-xhk" secondAttribute="top" id="0II-4d-cXm"/>
+                            <constraint firstItem="JP1-sC-W6l" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="0dN-Xx-pcf"/>
+                            <constraint firstItem="rnY-de-xPb" firstAttribute="leading" secondItem="jQ0-kl-xhk" secondAttribute="trailing" constant="20" id="2I8-RJ-SsS"/>
+                            <constraint firstItem="QP8-zt-e7h" firstAttribute="leading" secondItem="Rcz-oz-287" secondAttribute="trailing" constant="20" id="2RG-Xk-Wx0"/>
+                            <constraint firstItem="lC2-Wm-cfU" firstAttribute="top" secondItem="DVJ-u5-uMz" secondAttribute="topMargin" constant="8" id="5aI-Bm-Ghw"/>
+                            <constraint firstItem="jQ0-kl-xhk" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="5fr-fC-JIo"/>
+                            <constraint firstItem="gwi-H0-nfT" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="6AJ-Bb-iyf"/>
+                            <constraint firstItem="N3m-fF-gWw" firstAttribute="leading" secondItem="Urm-eJ-pTp" secondAttribute="trailing" constant="20" id="7pH-nN-fip"/>
+                            <constraint firstItem="kgm-4B-EKD" firstAttribute="top" secondItem="HXm-yy-TX6" secondAttribute="top" id="CwV-Pg-czF"/>
+                            <constraint firstItem="2R5-NX-M23" firstAttribute="leading" secondItem="C9O-xR-s1U" secondAttribute="trailing" constant="20" id="DUG-FI-asL"/>
+                            <constraint firstItem="Fgs-8Q-gsN" firstAttribute="top" secondItem="yr8-We-yPt" secondAttribute="top" id="DeA-XD-SQ8"/>
+                            <constraint firstItem="pja-C5-nN4" firstAttribute="leading" secondItem="gwi-H0-nfT" secondAttribute="trailing" constant="20" id="Enw-hU-PGq"/>
+                            <constraint firstItem="N3m-fF-gWw" firstAttribute="top" secondItem="Urm-eJ-pTp" secondAttribute="top" id="F8i-k2-Ls2"/>
+                            <constraint firstItem="3If-aD-KQP" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="FTf-VX-ZFP"/>
+                            <constraint firstItem="hl4-XX-Aq0" firstAttribute="leading" secondItem="lC2-Wm-cfU" secondAttribute="trailing" constant="20" id="Ibk-k2-WrQ"/>
+                            <constraint firstItem="QGN-tC-k1X" firstAttribute="top" secondItem="dw7-JX-OyY" secondAttribute="top" id="Jgp-Er-a7C"/>
+                            <constraint firstItem="C9O-xR-s1U" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="K4B-5z-ki9"/>
+                            <constraint firstItem="YFG-Kx-345" firstAttribute="top" secondItem="RuE-9H-N6S" secondAttribute="top" id="LEQ-2B-uDC"/>
+                            <constraint firstItem="RuE-9H-N6S" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="Nfr-87-rU2"/>
+                            <constraint firstItem="2R5-NX-M23" firstAttribute="top" secondItem="C9O-xR-s1U" secondAttribute="top" id="Nz5-mJ-8HN"/>
+                            <constraint firstItem="hl4-XX-Aq0" firstAttribute="top" secondItem="lC2-Wm-cfU" secondAttribute="top" id="PfV-hQ-IUS"/>
+                            <constraint firstItem="pja-C5-nN4" firstAttribute="top" secondItem="gwi-H0-nfT" secondAttribute="top" id="S3A-BS-c1U"/>
+                            <constraint firstItem="yr8-We-yPt" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="S8c-Hk-fzZ"/>
+                            <constraint firstItem="QP8-zt-e7h" firstAttribute="top" secondItem="Rcz-oz-287" secondAttribute="top" id="TY6-A7-RtU"/>
+                            <constraint firstItem="Rcz-oz-287" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="U8p-x8-PeA"/>
+                            <constraint firstItem="HXm-yy-TX6" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="UXx-m5-Ab6"/>
+                            <constraint firstItem="jPE-1N-X0p" firstAttribute="leading" secondItem="JP1-sC-W6l" secondAttribute="trailing" constant="20" id="ars-3b-FE3"/>
+                            <constraint firstItem="qEh-vo-740" firstAttribute="leading" secondItem="3If-aD-KQP" secondAttribute="trailing" constant="20" id="bKz-mr-GDT"/>
+                            <constraint firstItem="YFG-Kx-345" firstAttribute="leading" secondItem="RuE-9H-N6S" secondAttribute="trailing" constant="20" id="gDu-29-3zr"/>
+                            <constraint firstItem="kgm-4B-EKD" firstAttribute="leading" secondItem="HXm-yy-TX6" secondAttribute="trailing" constant="20" id="hnQ-rH-sml"/>
+                            <constraint firstItem="qEh-vo-740" firstAttribute="top" secondItem="3If-aD-KQP" secondAttribute="top" id="i1a-24-pof"/>
+                            <constraint firstItem="jPE-1N-X0p" firstAttribute="top" secondItem="JP1-sC-W6l" secondAttribute="top" id="jUe-K4-x1C"/>
+                            <constraint firstItem="Urm-eJ-pTp" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="lh3-bj-XsN"/>
+                            <constraint firstItem="Fgs-8Q-gsN" firstAttribute="leading" secondItem="yr8-We-yPt" secondAttribute="trailing" constant="20" id="luY-UQ-Jyj"/>
+                            <constraint firstItem="QGN-tC-k1X" firstAttribute="leading" secondItem="dw7-JX-OyY" secondAttribute="trailing" constant="20" id="p7X-JC-ayi"/>
+                            <constraint firstItem="dw7-JX-OyY" firstAttribute="centerX" secondItem="lC2-Wm-cfU" secondAttribute="centerX" id="qQZ-vz-RLj"/>
+                            <constraint firstItem="lC2-Wm-cfU" firstAttribute="centerX" secondItem="DVJ-u5-uMz" secondAttribute="centerX" constant="-70" id="vee-cm-FUg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEd-VQ-rOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2080" y="784"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aiE-14-jGc">
+            <objects>
+                <viewController id="aee-y8-Dhz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FNi-Ad-TNV"/>
+                        <viewControllerLayoutGuide type="bottom" id="xnp-nj-MHi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XiA-gi-Ad5">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdB-ha-WKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2841" y="784"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Qa-mv-e4l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EVt-GQ-ZBs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rFi-2b-SHV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oyb-fR-h1o" kind="relationship" relationship="rootViewController" id="3xw-8k-t7w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWd-Fv-8Q0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="392"/>
+        </scene>
+    </scenes>
+</document>

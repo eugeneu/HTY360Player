@@ -17,10 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[HTYMenuVC alloc] initWithNibName:@"HTYMenuVC" bundle:[NSBundle mainBundle]];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    //self.viewController = [[HTYMenuVC alloc] initWithNibName:@"HTYMenuVC" bundle:[NSBundle mainBundle]];
+    //self.viewController = [[Experiment0TopVC alloc] initWithNibName:@"Experiment0TopVC" bundle:[NSBundle mainBundle]];
+    
+    //self.window.rootViewController = self.viewController;
+    //[self.window makeKeyAndVisible];
     return YES;
 }
 
