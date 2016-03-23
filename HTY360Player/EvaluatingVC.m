@@ -73,7 +73,7 @@ BOOL lastEvalPair = false;
     NSLog(@"currrentTrainPair = %@", currrentEvalPair);
     NSString *evalName = currrentEvalPair[0];
     NSInteger evalLayout = [[currrentEvalPair objectAtIndex:1] integerValue];
-    [self launchVideoWithNameAndLayout:evalName layout:evalLayout];
+    [self launchVideoWithNameAndLayout:evalName layout: (int)evalLayout];
     evalAPlayed = true;
     _buttonPlayA.enabled = NO;
     if (evalBPlayed && !lastEvalPair) {
@@ -85,7 +85,7 @@ BOOL lastEvalPair = false;
     NSLog(@"currrentTrainPair = %@", currrentEvalPair);
     NSString *evalName = currrentEvalPair[0];
     NSInteger evalLayout = [[currrentEvalPair objectAtIndex:1] integerValue];
-    [self launchVideoWithNameAndLayout:evalName layout:evalLayout];
+    [self launchVideoWithNameAndLayout:evalName layout: (int)evalLayout];
     evalBPlayed = true;
     _buttonPlayB.enabled = NO;
     if (evalAPlayed && !lastEvalPair) {
@@ -100,8 +100,8 @@ BOOL lastEvalPair = false;
     
     currrentEvalPairIdx += 1;
     
-    [_buttonPlayA setTitle:[NSString stringWithFormat:@"Play %dA",currrentEvalPairIdx+1] forState: UIControlStateNormal];
-    [_buttonPlayB setTitle:[NSString stringWithFormat:@"Play %dB",currrentEvalPairIdx+1] forState: UIControlStateNormal];
+    [_buttonPlayA setTitle:[NSString stringWithFormat:@"Play %ldA",currrentEvalPairIdx+1] forState: UIControlStateNormal];
+    [_buttonPlayB setTitle:[NSString stringWithFormat:@"Play %ldB",currrentEvalPairIdx+1] forState: UIControlStateNormal];
     
     if ([evalSeqs count] <= currrentEvalPairIdx + 1 ) {
         lastEvalPair = true;
