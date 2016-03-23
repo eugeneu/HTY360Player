@@ -36,6 +36,7 @@ BOOL lastEvalPair = false;
                   @[ @[@"im360_Golf_cubemap_32_1620x1080_x264_qp23", @1],  @[@"im360_Golf_cubemap_180_1800x1080_x264_qp24", @2]  ],
                   @[ @[@"im360_Golf_cubemap_180_1800x1080_x264_qp24", @2], @[@"im360_Golf_equirec_1920x1080_x264_qp24", @0]  ],
                   
+                  @[ @[@"ld2_City_equirec_1920x1080_x264_qp22", @0],     @[@"ld2_City_cubemap_32_1620x1080_x264_qp24", @1]  ],
                   @[ @[@"ld2_City_cubemap_32_1620x1080_x264_qp24", @1],  @[@"ld2_City_cubemap_180_1800x1080_x264_qp25", @2]  ],
                   @[ @[@"ld2_City_cubemap_180_1800x1080_x264_qp25", @2], @[@"ld2_City_equirec_1920x1080_x264_qp22", @0]  ],
                   
@@ -100,8 +101,8 @@ BOOL lastEvalPair = false;
     
     currrentEvalPairIdx += 1;
     
-    [_buttonPlayA setTitle:[NSString stringWithFormat:@"Play %ldA",currrentEvalPairIdx+1] forState: UIControlStateNormal];
-    [_buttonPlayB setTitle:[NSString stringWithFormat:@"Play %ldB",currrentEvalPairIdx+1] forState: UIControlStateNormal];
+    [_buttonPlayA setTitle:[NSString stringWithFormat:@"Play %dA",(int)currrentEvalPairIdx+1] forState: UIControlStateNormal];
+    [_buttonPlayB setTitle:[NSString stringWithFormat:@"Play %dB",(int)currrentEvalPairIdx+1] forState: UIControlStateNormal];
     
     if ([evalSeqs count] <= currrentEvalPairIdx + 1 ) {
         lastEvalPair = true;

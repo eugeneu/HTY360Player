@@ -81,8 +81,8 @@ BOOL lastPair = false;
     
     currrentTrainPairIdx += 1;
     
-    [_buttonPlayA setTitle:[NSString stringWithFormat:@"Play T%ldA",currrentTrainPairIdx+1] forState: UIControlStateNormal];
-    [_buttonPlayB setTitle:[NSString stringWithFormat:@"Play T%ldB",currrentTrainPairIdx+1] forState: UIControlStateNormal];
+    [_buttonPlayA setTitle:[NSString stringWithFormat:@"Play T%dA",(int)currrentTrainPairIdx+1] forState: UIControlStateNormal];
+    [_buttonPlayB setTitle:[NSString stringWithFormat:@"Play T%dB",(int)currrentTrainPairIdx+1] forState: UIControlStateNormal];
     
     if ([trainingSeqs count] <= currrentTrainPairIdx + 1 ) {
         lastPair = true;
