@@ -20,13 +20,25 @@
 		405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */; };
 		405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CB1BEF8B18003BCFF7 /* Shader.vsh */; };
 		405108CE1BEF8B4B003BCFF7 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 405108CD1BEF8B4B003BCFF7 /* Shader.fsh */; };
-		441069C41C9862CF002097AD /* ld5_Mall_cubemap_32_1620x1080_x264.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441069C21C9862CF002097AD /* ld5_Mall_cubemap_32_1620x1080_x264.mp4 */; };
-		441069CE1C9D8436002097AD /* ld5_Drive_cubemap_180_1800x1080p24_x264.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441069CD1C9D8436002097AD /* ld5_Drive_cubemap_180_1800x1080p24_x264.mp4 */; };
-		443E7B321C74B1A8008CE8E7 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443E7B311C74B1A8008CE8E7 /* demo.mp4 */; };
-		445C0C5F1C9E02DC0094C0E6 /* ld5_Drive_cubemap_32_1620x1080p24_x264.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 445C0C5E1C9E02DC0094C0E6 /* ld5_Drive_cubemap_32_1620x1080p24_x264.mp4 */; };
+		4431DD571CA2026300BC40A4 /* TrainingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4431DD561CA2026300BC40A4 /* TrainingVC.m */; };
+		4431DD671CA2904D00BC40A4 /* im360_Golf_cubemap_32_1620x1080_x264_qp23.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD581CA2904D00BC40A4 /* im360_Golf_cubemap_32_1620x1080_x264_qp23.mp4 */; };
+		4431DD681CA2904D00BC40A4 /* im360_Golf_cubemap_180_1800x1080_x264_qp24.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD591CA2904D00BC40A4 /* im360_Golf_cubemap_180_1800x1080_x264_qp24.mp4 */; };
+		4431DD691CA2904D00BC40A4 /* im360_Golf_equirec_1920x1080_x264_qp24.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD5A1CA2904D00BC40A4 /* im360_Golf_equirec_1920x1080_x264_qp24.mp4 */; };
+		4431DD6A1CA2904D00BC40A4 /* ld2_City_cubemap_32_1620x1080_x264_qp24.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD5B1CA2904D00BC40A4 /* ld2_City_cubemap_32_1620x1080_x264_qp24.mp4 */; };
+		4431DD6B1CA2904D00BC40A4 /* ld2_City_cubemap_180_1800x1080_x264_qp25.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD5C1CA2904D00BC40A4 /* ld2_City_cubemap_180_1800x1080_x264_qp25.mp4 */; };
+		4431DD6C1CA2904D00BC40A4 /* ld2_City_equirec_1920x1080_x264_qp22.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD5D1CA2904D00BC40A4 /* ld2_City_equirec_1920x1080_x264_qp22.mp4 */; };
+		4431DD6D1CA2904D00BC40A4 /* ld5_Drive_cubemap_32_1620x1080_x264_qp24.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD5E1CA2904D00BC40A4 /* ld5_Drive_cubemap_32_1620x1080_x264_qp24.mp4 */; };
+		4431DD6E1CA2904D00BC40A4 /* ld5_Drive_cubemap_180_1800x1080_x264_qp24.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD5F1CA2904D00BC40A4 /* ld5_Drive_cubemap_180_1800x1080_x264_qp24.mp4 */; };
+		4431DD6F1CA2904D00BC40A4 /* ld5_Drive_equirec_1920x1080_x264_qp22.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD601CA2904D00BC40A4 /* ld5_Drive_equirec_1920x1080_x264_qp22.mp4 */; };
+		4431DD701CA2904D00BC40A4 /* ld5_Mall_cubemap_32_1620x1080_x264_qp23.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD611CA2904D00BC40A4 /* ld5_Mall_cubemap_32_1620x1080_x264_qp23.mp4 */; };
+		4431DD711CA2904D00BC40A4 /* ld5_Mall_cubemap_180_1800x1080_x264_qp24.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD621CA2904D00BC40A4 /* ld5_Mall_cubemap_180_1800x1080_x264_qp24.mp4 */; };
+		4431DD721CA2904D00BC40A4 /* ld5_Mall_equirec_1920x1080_x264_qp22.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD631CA2904D00BC40A4 /* ld5_Mall_equirec_1920x1080_x264_qp22.mp4 */; };
+		4431DD731CA2904D00BC40A4 /* ld5_Tunnel_cubemap_32_1620x1080_x264_qp23.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD641CA2904D00BC40A4 /* ld5_Tunnel_cubemap_32_1620x1080_x264_qp23.mp4 */; };
+		4431DD741CA2904D00BC40A4 /* ld5_Tunnel_cubemap_180_1800x1080_x264_qp23.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD651CA2904D00BC40A4 /* ld5_Tunnel_cubemap_180_1800x1080_x264_qp23.mp4 */; };
+		4431DD751CA2904D00BC40A4 /* ld5_Tunnel_equirec_1920x1080_x264_qp23.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4431DD661CA2904D00BC40A4 /* ld5_Tunnel_equirec_1920x1080_x264_qp23.mp4 */; };
+		4431DD781CA2CAA200BC40A4 /* EvaluatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4431DD771CA2CAA200BC40A4 /* EvaluatingVC.m */; };
 		445C0C611C9FFCBD0094C0E6 /* Experiment0.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445C0C601C9FFCBD0094C0E6 /* Experiment0.storyboard */; };
 		445C0C641CA004340094C0E6 /* Experiment0TopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 445C0C631CA004340094C0E6 /* Experiment0TopVC.m */; };
-		447344171C93181900412FE3 /* im360_Golf_cubemap_32_1620x1080p30_x264.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 447344161C93181900412FE3 /* im360_Golf_cubemap_32_1620x1080p30_x264.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,14 +63,28 @@
 		405108C81BEF85B3003BCFF7 /* HTYMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTYMenuVC.xib; sourceTree = "<group>"; };
 		405108CB1BEF8B18003BCFF7 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		405108CD1BEF8B4B003BCFF7 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
-		441069C21C9862CF002097AD /* ld5_Mall_cubemap_32_1620x1080_x264.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Mall_cubemap_32_1620x1080_x264.mp4; sourceTree = "<group>"; };
-		441069CD1C9D8436002097AD /* ld5_Drive_cubemap_180_1800x1080p24_x264.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Drive_cubemap_180_1800x1080p24_x264.mp4; sourceTree = "<group>"; };
-		443E7B311C74B1A8008CE8E7 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
-		445C0C5E1C9E02DC0094C0E6 /* ld5_Drive_cubemap_32_1620x1080p24_x264.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Drive_cubemap_32_1620x1080p24_x264.mp4; sourceTree = "<group>"; };
+		4431DD551CA2026300BC40A4 /* TrainingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingVC.h; sourceTree = "<group>"; };
+		4431DD561CA2026300BC40A4 /* TrainingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingVC.m; sourceTree = "<group>"; };
+		4431DD581CA2904D00BC40A4 /* im360_Golf_cubemap_32_1620x1080_x264_qp23.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = im360_Golf_cubemap_32_1620x1080_x264_qp23.mp4; sourceTree = "<group>"; };
+		4431DD591CA2904D00BC40A4 /* im360_Golf_cubemap_180_1800x1080_x264_qp24.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = im360_Golf_cubemap_180_1800x1080_x264_qp24.mp4; sourceTree = "<group>"; };
+		4431DD5A1CA2904D00BC40A4 /* im360_Golf_equirec_1920x1080_x264_qp24.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = im360_Golf_equirec_1920x1080_x264_qp24.mp4; sourceTree = "<group>"; };
+		4431DD5B1CA2904D00BC40A4 /* ld2_City_cubemap_32_1620x1080_x264_qp24.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld2_City_cubemap_32_1620x1080_x264_qp24.mp4; sourceTree = "<group>"; };
+		4431DD5C1CA2904D00BC40A4 /* ld2_City_cubemap_180_1800x1080_x264_qp25.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld2_City_cubemap_180_1800x1080_x264_qp25.mp4; sourceTree = "<group>"; };
+		4431DD5D1CA2904D00BC40A4 /* ld2_City_equirec_1920x1080_x264_qp22.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld2_City_equirec_1920x1080_x264_qp22.mp4; sourceTree = "<group>"; };
+		4431DD5E1CA2904D00BC40A4 /* ld5_Drive_cubemap_32_1620x1080_x264_qp24.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Drive_cubemap_32_1620x1080_x264_qp24.mp4; sourceTree = "<group>"; };
+		4431DD5F1CA2904D00BC40A4 /* ld5_Drive_cubemap_180_1800x1080_x264_qp24.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Drive_cubemap_180_1800x1080_x264_qp24.mp4; sourceTree = "<group>"; };
+		4431DD601CA2904D00BC40A4 /* ld5_Drive_equirec_1920x1080_x264_qp22.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Drive_equirec_1920x1080_x264_qp22.mp4; sourceTree = "<group>"; };
+		4431DD611CA2904D00BC40A4 /* ld5_Mall_cubemap_32_1620x1080_x264_qp23.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Mall_cubemap_32_1620x1080_x264_qp23.mp4; sourceTree = "<group>"; };
+		4431DD621CA2904D00BC40A4 /* ld5_Mall_cubemap_180_1800x1080_x264_qp24.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Mall_cubemap_180_1800x1080_x264_qp24.mp4; sourceTree = "<group>"; };
+		4431DD631CA2904D00BC40A4 /* ld5_Mall_equirec_1920x1080_x264_qp22.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Mall_equirec_1920x1080_x264_qp22.mp4; sourceTree = "<group>"; };
+		4431DD641CA2904D00BC40A4 /* ld5_Tunnel_cubemap_32_1620x1080_x264_qp23.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Tunnel_cubemap_32_1620x1080_x264_qp23.mp4; sourceTree = "<group>"; };
+		4431DD651CA2904D00BC40A4 /* ld5_Tunnel_cubemap_180_1800x1080_x264_qp23.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Tunnel_cubemap_180_1800x1080_x264_qp23.mp4; sourceTree = "<group>"; };
+		4431DD661CA2904D00BC40A4 /* ld5_Tunnel_equirec_1920x1080_x264_qp23.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ld5_Tunnel_equirec_1920x1080_x264_qp23.mp4; sourceTree = "<group>"; };
+		4431DD761CA2CAA200BC40A4 /* EvaluatingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluatingVC.h; sourceTree = "<group>"; };
+		4431DD771CA2CAA200BC40A4 /* EvaluatingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluatingVC.m; sourceTree = "<group>"; };
 		445C0C601C9FFCBD0094C0E6 /* Experiment0.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Experiment0.storyboard; sourceTree = "<group>"; };
 		445C0C621CA004340094C0E6 /* Experiment0TopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Experiment0TopVC.h; sourceTree = "<group>"; };
 		445C0C631CA004340094C0E6 /* Experiment0TopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Experiment0TopVC.m; sourceTree = "<group>"; };
-		447344161C93181900412FE3 /* im360_Golf_cubemap_32_1620x1080p30_x264.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = im360_Golf_cubemap_32_1620x1080p30_x264.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +134,21 @@
 		4051089E1BEF7E3C003BCFF7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				445C0C5E1C9E02DC0094C0E6 /* ld5_Drive_cubemap_32_1620x1080p24_x264.mp4 */,
-				441069CD1C9D8436002097AD /* ld5_Drive_cubemap_180_1800x1080p24_x264.mp4 */,
-				441069C21C9862CF002097AD /* ld5_Mall_cubemap_32_1620x1080_x264.mp4 */,
-				447344161C93181900412FE3 /* im360_Golf_cubemap_32_1620x1080p30_x264.mp4 */,
-				443E7B311C74B1A8008CE8E7 /* demo.mp4 */,
+				4431DD581CA2904D00BC40A4 /* im360_Golf_cubemap_32_1620x1080_x264_qp23.mp4 */,
+				4431DD591CA2904D00BC40A4 /* im360_Golf_cubemap_180_1800x1080_x264_qp24.mp4 */,
+				4431DD5A1CA2904D00BC40A4 /* im360_Golf_equirec_1920x1080_x264_qp24.mp4 */,
+				4431DD5B1CA2904D00BC40A4 /* ld2_City_cubemap_32_1620x1080_x264_qp24.mp4 */,
+				4431DD5C1CA2904D00BC40A4 /* ld2_City_cubemap_180_1800x1080_x264_qp25.mp4 */,
+				4431DD5D1CA2904D00BC40A4 /* ld2_City_equirec_1920x1080_x264_qp22.mp4 */,
+				4431DD5E1CA2904D00BC40A4 /* ld5_Drive_cubemap_32_1620x1080_x264_qp24.mp4 */,
+				4431DD5F1CA2904D00BC40A4 /* ld5_Drive_cubemap_180_1800x1080_x264_qp24.mp4 */,
+				4431DD601CA2904D00BC40A4 /* ld5_Drive_equirec_1920x1080_x264_qp22.mp4 */,
+				4431DD611CA2904D00BC40A4 /* ld5_Mall_cubemap_32_1620x1080_x264_qp23.mp4 */,
+				4431DD621CA2904D00BC40A4 /* ld5_Mall_cubemap_180_1800x1080_x264_qp24.mp4 */,
+				4431DD631CA2904D00BC40A4 /* ld5_Mall_equirec_1920x1080_x264_qp22.mp4 */,
+				4431DD641CA2904D00BC40A4 /* ld5_Tunnel_cubemap_32_1620x1080_x264_qp23.mp4 */,
+				4431DD651CA2904D00BC40A4 /* ld5_Tunnel_cubemap_180_1800x1080_x264_qp23.mp4 */,
+				4431DD661CA2904D00BC40A4 /* ld5_Tunnel_equirec_1920x1080_x264_qp23.mp4 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -150,6 +186,10 @@
 				445C0C601C9FFCBD0094C0E6 /* Experiment0.storyboard */,
 				445C0C621CA004340094C0E6 /* Experiment0TopVC.h */,
 				445C0C631CA004340094C0E6 /* Experiment0TopVC.m */,
+				4431DD551CA2026300BC40A4 /* TrainingVC.h */,
+				4431DD561CA2026300BC40A4 /* TrainingVC.m */,
+				4431DD761CA2CAA200BC40A4 /* EvaluatingVC.h */,
+				4431DD771CA2CAA200BC40A4 /* EvaluatingVC.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -221,18 +261,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				445C0C5F1C9E02DC0094C0E6 /* ld5_Drive_cubemap_32_1620x1080p24_x264.mp4 in Resources */,
+				4431DD681CA2904D00BC40A4 /* im360_Golf_cubemap_180_1800x1080_x264_qp24.mp4 in Resources */,
 				405108CE1BEF8B4B003BCFF7 /* Shader.fsh in Resources */,
+				4431DD6E1CA2904D00BC40A4 /* ld5_Drive_cubemap_180_1800x1080_x264_qp24.mp4 in Resources */,
 				405108AE1BEF7E3C003BCFF7 /* LaunchScreen.storyboard in Resources */,
 				405108CA1BEF85B3003BCFF7 /* HTYMenuVC.xib in Resources */,
-				443E7B321C74B1A8008CE8E7 /* demo.mp4 in Resources */,
-				441069CE1C9D8436002097AD /* ld5_Drive_cubemap_180_1800x1080p24_x264.mp4 in Resources */,
-				447344171C93181900412FE3 /* im360_Golf_cubemap_32_1620x1080p30_x264.mp4 in Resources */,
+				4431DD6A1CA2904D00BC40A4 /* ld2_City_cubemap_32_1620x1080_x264_qp24.mp4 in Resources */,
+				4431DD6F1CA2904D00BC40A4 /* ld5_Drive_equirec_1920x1080_x264_qp22.mp4 in Resources */,
+				4431DD671CA2904D00BC40A4 /* im360_Golf_cubemap_32_1620x1080_x264_qp23.mp4 in Resources */,
+				4431DD751CA2904D00BC40A4 /* ld5_Tunnel_equirec_1920x1080_x264_qp23.mp4 in Resources */,
+				4431DD6C1CA2904D00BC40A4 /* ld2_City_equirec_1920x1080_x264_qp22.mp4 in Resources */,
 				405108AB1BEF7E3C003BCFF7 /* Assets.xcassets in Resources */,
 				405108BC1BEF7F32003BCFF7 /* HTY360PlayerVC.xib in Resources */,
+				4431DD6D1CA2904D00BC40A4 /* ld5_Drive_cubemap_32_1620x1080_x264_qp24.mp4 in Resources */,
+				4431DD6B1CA2904D00BC40A4 /* ld2_City_cubemap_180_1800x1080_x264_qp25.mp4 in Resources */,
+				4431DD701CA2904D00BC40A4 /* ld5_Mall_cubemap_32_1620x1080_x264_qp23.mp4 in Resources */,
 				405108CC1BEF8B18003BCFF7 /* Shader.vsh in Resources */,
 				445C0C611C9FFCBD0094C0E6 /* Experiment0.storyboard in Resources */,
-				441069C41C9862CF002097AD /* ld5_Mall_cubemap_32_1620x1080_x264.mp4 in Resources */,
+				4431DD691CA2904D00BC40A4 /* im360_Golf_equirec_1920x1080_x264_qp24.mp4 in Resources */,
+				4431DD741CA2904D00BC40A4 /* ld5_Tunnel_cubemap_180_1800x1080_x264_qp23.mp4 in Resources */,
+				4431DD721CA2904D00BC40A4 /* ld5_Mall_equirec_1920x1080_x264_qp22.mp4 in Resources */,
+				4431DD711CA2904D00BC40A4 /* ld5_Mall_cubemap_180_1800x1080_x264_qp24.mp4 in Resources */,
+				4431DD731CA2904D00BC40A4 /* ld5_Tunnel_cubemap_32_1620x1080_x264_qp23.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,10 +295,12 @@
 			files = (
 				405108C41BEF84C4003BCFF7 /* HTYGenericMenuVC.m in Sources */,
 				405108C91BEF85B3003BCFF7 /* HTYMenuVC.m in Sources */,
+				4431DD781CA2CAA200BC40A4 /* EvaluatingVC.m in Sources */,
 				445C0C641CA004340094C0E6 /* Experiment0TopVC.m in Sources */,
 				405108B71BEF7EDB003BCFF7 /* GLProgram.m in Sources */,
 				405108A31BEF7E3C003BCFF7 /* AppDelegate.m in Sources */,
 				405108A01BEF7E3C003BCFF7 /* main.m in Sources */,
+				4431DD571CA2026300BC40A4 /* TrainingVC.m in Sources */,
 				405108BB1BEF7F32003BCFF7 /* HTY360PlayerVC.m in Sources */,
 				405108BF1BEF8193003BCFF7 /* HTYGLKVC.m in Sources */,
 			);

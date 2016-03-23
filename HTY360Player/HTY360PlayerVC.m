@@ -87,6 +87,8 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     
     _fileNameLabel.text = [_videoURL lastPathComponent];
     _mapLabel.text = [_glkViewController getCurrentLayout];
+    
+    [self play];
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification {
@@ -637,7 +639,15 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     /* After the movie has played to its end time, seek back to time zero
      to play it again. */
     seekToZeroBeforePlay = YES;
-    [self play];
+    //[self play];
+    
+    // Close the player after playing file
+    [self removePlayerTimeObserver];
+    [_player pause];
+    [_glkViewController removeFromParentViewController];
+    _glkViewController = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 #pragma mark gyro button
