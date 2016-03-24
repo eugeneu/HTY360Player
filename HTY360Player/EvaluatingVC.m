@@ -99,6 +99,9 @@ BOOL lastEvalPair = false;
     _buttonPlayA.enabled = YES;
     _buttonPlayB.enabled = YES;
     
+    evalAPlayed = false;
+    evalBPlayed = false;
+    
     currrentEvalPairIdx += 1;
     
     [_buttonPlayA setTitle:[NSString stringWithFormat:@"Play %dA",(int)currrentEvalPairIdx+1] forState: UIControlStateNormal];
@@ -108,5 +111,9 @@ BOOL lastEvalPair = false;
         lastEvalPair = true;
     }
 }
+- (IBAction)hidNext:(id)sender {
+    [self Next: sender];
+}
+
 
 @end
