@@ -76,7 +76,6 @@ static void *AVPlayerItemStatusContext = &AVPlayerItemStatusContext;
     
     [self setupVideoPlaybackForURL:_videoURL];
     
-    NSLog(@" HTY360PlayerVC::viewDidLoad - _fileLayout %d", _fileLayout);
     [self configureGLKView: _fileLayout];
     
     [self configurePlayButton];

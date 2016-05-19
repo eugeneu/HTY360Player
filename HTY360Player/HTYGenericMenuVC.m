@@ -51,7 +51,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
     NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
     
-    while (!url);
+    //while (!url);
     
     HTY360PlayerVC *videoController = [[HTY360PlayerVC alloc] initWithNibName:@"HTY360PlayerVC" bundle:nil url:url fileLayout:layout];
     
